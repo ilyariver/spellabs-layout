@@ -17,6 +17,7 @@ const mediaQueries = () => {
 	`
 }
 
+// Обертка хедера
 const HeaderWrap = styled.header`
   position: relative;
   height: 80px;
@@ -24,11 +25,12 @@ const HeaderWrap = styled.header`
   .header-container {
     display: flex;
     justify-content: space-between;
-	align-items: center;
-	height: 100%;
+		align-items: center;
+		height: 100%;
   }
 `
 
+// Логотип
 const HeaderLogo = styled.div`
   height: 20px;
   width: 80px;
@@ -38,8 +40,9 @@ const HeaderLogo = styled.div`
   }
 `
 
+// Меню навигации
 const Nav = styled.div`
-  display: none;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
@@ -47,7 +50,7 @@ const Nav = styled.div`
   right: 0;
   height: 100vh;
   width: 80%;
-  padding: 50px 30px;
+  padding: 80px 50px;
   background-color: #fff;
   box-shadow: -1px 0 3px 0 #00000038;
   
@@ -56,10 +59,14 @@ const Nav = styled.div`
   }
   
   @media (min-width: ${gridBreakpoints.md}) {
-	padding: 100px 90px;
+		padding: 100px 90px;
+    width: 60%;
+  }
+  @media (min-width: ${gridBreakpoints.lg}) {
   }
 `
 
+// Кнопка открытия меню
 const BurgerButton = styled.button`
   background-color: transparent;
   border: none;
@@ -74,9 +81,10 @@ const BurgerButton = styled.button`
   ${mediaQueries()}
 `
 
+// Кнопка закрытия меню
 const CloseButton = styled.button`
   position: absolute;
-  top: 20px;
+  top: 25px;
   right: 40px;
   background-color: transparent;
   border: none;
@@ -95,13 +103,15 @@ const NavList = styled.ul`
 	
 `
 
+// Заголовки меню
 const NavItem = styled.li`
-  	margin-bottom: 40px;
+	margin-bottom: 40px;
 	text-transform: uppercase;
 `
 
+// Надпись контакты
 const Contacts = styled.div`
-  	color: var(--color-yellow-font);
+	color: var(--color-yellow-font);
 	text-transform: uppercase;
 `
 
