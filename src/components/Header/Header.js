@@ -14,13 +14,18 @@ const mediaQueries = () => {
 				height: 35px;
 			}
 		}
+		
+		@media (min-width: ${gridBreakpoints.lg}) {
+			display: none;
+		}
 	`
 }
 
-// Обертка хедера
-const HeaderWrap = styled.header`
+// Хедера
+const PageHeader = styled.header`
   position: relative;
   height: 80px;
+	border: 1px solid black;
 
   .header-container {
     display: flex;
@@ -35,34 +40,12 @@ const HeaderLogo = styled.div`
   height: 20px;
   width: 80px;
   
-  @media (min-width: 576px) {
-	width: 100px;
+  @media (min-width: ${gridBreakpoints.sm}) {
+		width: 100px;
   }
-`
 
-// Меню навигации
-const Nav = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 80%;
-  padding: 80px 50px;
-  background-color: #fff;
-  box-shadow: -1px 0 3px 0 #00000038;
-  
-  &.active {
-    display: flex;
-  }
-  
-  @media (min-width: ${gridBreakpoints.md}) {
-		padding: 100px 90px;
-    width: 60%;
-  }
   @media (min-width: ${gridBreakpoints.lg}) {
+    height: 25px;
   }
 `
 
@@ -96,17 +79,62 @@ const CloseButton = styled.button`
     width: 30px;
     height: 30px;
   }
-  ${mediaQueries()}
+  ${mediaQueries()}  
+`
+
+// Меню навигации
+const Nav = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 20rem;
+  padding: 80px 50px;
+  background-color: #fff;
+  box-shadow: -1px 0 3px 0 #00000038;
+  
+  &.active {
+    display: flex;
+  }
+
+  @media (min-width: ${gridBreakpoints.sm}) {
+    width: 25rem;
+  }
+  
+  @media (min-width: ${gridBreakpoints.md}) {
+		padding: 100px 90px;
+    width: 30rem;
+  }
+	
+  @media (min-width: ${gridBreakpoints.lg}) {
+		background-color: transparent;
+		position: static;
+		flex-direction: row;
+		box-shadow: none;
+		width: auto;
+		height: auto;
+		padding: 0;
+  }
 `
 
 const NavList = styled.ul`
-	
+  @media (min-width: ${gridBreakpoints.lg}) {
+    display: flex;
+		align-items: center;
+	}
 `
 
 // Заголовки меню
 const NavItem = styled.li`
 	margin-bottom: 40px;
 	text-transform: uppercase;
+
+  @media (min-width: ${gridBreakpoints.lg}) {
+		margin-bottom: 0;
+	}
 `
 
 // Надпись контакты
@@ -119,7 +147,7 @@ class Header extends React.Component {
 
 	render() {
 		return (
-			<HeaderWrap>
+			<PageHeader>
 				<Container className="header-container">
 					<HeaderLogo>
 						<a href="#">
@@ -151,7 +179,7 @@ class Header extends React.Component {
 					</Nav>
 					<BurgerButton aria-label="Показать меню"><span></span></BurgerButton>
 				</Container>
-			</HeaderWrap>
+			</PageHeader>
 		)
 	}
 }
