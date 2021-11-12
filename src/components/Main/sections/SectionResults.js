@@ -7,13 +7,13 @@ import saving from '../../../assets/images/saving.png';
 import result from '../../../assets/images/result.png';
 
 // Размеры устройств
-const { sm, md, lg, xl, xxl } = gridBreakpoints;
+const {sm, md, lg, xl, xxl} = gridBreakpoints;
 
 // Обертка секции
 const SectionResultsMain = styled.section`
-	background-color: var(--color-white);
-	padding-top: 4rem;
-	padding-bottom: 4rem;
+  background-color: var(--color-white);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 
   ${mediaQueries(lg, `
   	padding-top: 50px;	
@@ -24,12 +24,12 @@ const SectionResultsMain = styled.section`
   	padding-top: 70px;	
   	padding-bottom: 135px;	
 	`)}
-`
+`;
 
 // Заголовок
 const SectionTitle = styled.h2`
   margin-top: 0;
-	margin-bottom: 50px;
+  margin-bottom: 50px;
   font-size: 1.8rem;
   text-align: center;
 
@@ -44,7 +44,7 @@ const SectionTitle = styled.h2`
   ${mediaQueries(xl, `
   	margin-bottom: 55px;  	
 	`)}
-`
+`;
 
 // Обертка пунктов
 const ContentList = styled.ul`
@@ -55,14 +55,14 @@ const ContentList = styled.ul`
   ${mediaQueries(xl, `
   	padding: 0 100px;
 	`)}
-`
+`;
 
 // Пункты
 const ContentItem = styled.li`
   display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 3.5rem;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3.5rem;
 
   ${mediaQueries(lg, `
   	flex-direction: row;
@@ -81,12 +81,12 @@ const ContentItem = styled.li`
   ${mediaQueries(xxl, `
   	padding-right: 60px;	
 	`)}
-`
+`;
 
 // Блок с картинкой
 const ImageWrap = styled.div`
-	margin-bottom: 2rem;
-	width: 16.5rem;
+  margin-bottom: 2rem;
+  width: 16.5rem;
 
   ${mediaQueries(md, `
   	width: 10rem; 	
@@ -96,17 +96,17 @@ const ImageWrap = styled.div`
   	margin-bottom: 0;
   	width: auto; 	
 	`)}
-`
+`;
 
 // Блок с текстом
 const TextWrap = styled.div`
   display: flex;
-	flex-direction: column;
-	align-items: center;
-	
-	a {
+  flex-direction: column;
+  align-items: center;
+
+  a {
     display: block;
-		color: var(--color-blue-font);
+    color: var(--color-blue-font);
     font-size: 1.2rem;
   }
 
@@ -135,13 +135,13 @@ const TextWrap = styled.div`
 			font-size: 20px; 	
 		}
 	`)}
-`
+`;
 
 const Title = styled.div`
-	margin-bottom: 1.5rem;
-	font-size: 1.7rem;
-	font-weight: 600;
-	text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
 
   ${mediaQueries(md, `
   	margin-bottom: 0.5rem;
@@ -162,14 +162,14 @@ const Title = styled.div`
   	margin-bottom: 20px;
   	font-size: 48px; 	
 	`)}
-`
+`;
 
 const Text = styled.div`
-	margin-bottom: 0.6rem;
-	width: 20rem;
-	font-size: 1.2rem;
-	line-height: 2.3rem;
-	text-align: center;
+  margin-bottom: 0.6rem;
+  width: 20rem;
+  font-size: 1.2rem;
+  line-height: 2.3rem;
+  text-align: center;
 
   ${mediaQueries(sm, `
   	width: 23rem; 	
@@ -196,15 +196,15 @@ const Text = styled.div`
   	font-size: 18px;
     line-height: 35px;
 	`)}
-	
+
   ${mediaQueries(xxl, `
   	margin-bottom: 5px;
 		width: 420px;
   	font-size: 20px;
     line-height: 35px;
 	`)}
-	
-`
+
+`;
 
 // Компонент секции "Наилучшие результаты в короткий срок"
 class SectionResults extends React.Component {
@@ -213,14 +213,18 @@ class SectionResults extends React.Component {
 		this.state = {
 			title: 'Наилучшие результаты в короткий срок',
 			offer: [
-				{title: 'Экономия', text: 'Используйте готовое решение для текст \n' +
+				{
+					title: 'Экономия', text: 'Используйте готовое решение для текст \n' +
 						'трансформации портала в цифровое рыба\n' +
-						'место от профессионалов', link: '#', img: saving},
-				{title: 'Результат', text: 'Используйте готовое решение для текст \n' +
+						'место от профессионалов', link: '#', img: saving
+				},
+				{
+					title: 'Результат', text: 'Используйте готовое решение для текст \n' +
 						'трансформации портала в цифровое рыба\n' +
-						'место от профессионалов', link: '#', img: result},
+						'место от профессионалов', link: '#', img: result
+				},
 			],
-		}
+		};
 	}
 
 	render() {
@@ -242,13 +246,13 @@ class SectionResults extends React.Component {
 											<a href={item.link}>Подробнее</a>
 										</TextWrap>
 									</ContentItem>
-								)
+								);
 							})
 						}
 					</ContentList>
 				</Container>
 			</SectionResultsMain>
-		)
+		);
 	}
 }
 

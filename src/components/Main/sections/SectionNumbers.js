@@ -2,38 +2,37 @@ import React from 'react';
 import styled from 'styled-components';
 import Container from '../../../globalContainer';
 import {mediaQueries} from '../../../globalContainer';
-import grid from '../../../assets/images/grid.svg'
-import arrowDown from '../../../assets/images/arrow1.svg';
+import grid from '../../../assets/images/grid.svg';
 import gridBreakpoints from '../../../cssVar';
 
 // Размеры устройств
-const { sm, md, lg, xl, xxl } = gridBreakpoints;
+const {sm, md, lg, xl} = gridBreakpoints;
 
 // Обертка секции
 const SectionNumbersWrap = styled.section`
-	position: relative;
-	background-color: var(--color-gray);
-	padding-top: 10rem;
+  position: relative;
+  background-color: var(--color-gray);
+  padding-top: 10rem;
   padding-bottom: 10rem;
-	font-size: 1.8rem;
-	
-	.section-container {
+  font-size: 1.8rem;
+
+  .section-container {
     position: relative;
     z-index: 3;
-	}
-	
-	&:after {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		background-image: url(${grid});
-		width: 100%;
-		height: 100%;
-	} 
-	
-	${mediaQueries(sm, `
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: url(${grid});
+    width: 100%;
+    height: 100%;
+  }
+
+  ${mediaQueries(sm, `
 		padding-top: 9rem;
 		padding-bottom: 9rem;
 		font-size: 1.3rem;
@@ -50,24 +49,24 @@ const SectionNumbersWrap = styled.section`
 		padding-bottom: 171px;
 		font-size: 24px;
 	`)}
-`
+`;
 
 // Стрелка от кнопки
-const ArrowFrom = styled.div`
-	position: absolute;
-	top: -10rem;
-	left: 12rem;
-	z-index: 4;
-	
-	img {
-    width: 7rem;
-	}
-`
+// const ArrowFrom = styled.div`
+//   position: absolute;
+//   top: -10rem;
+//   left: 12rem;
+//   z-index: 4;
+//
+//   img {
+//     width: 7rem;
+//   }
+// `;
 
 // Обертка заголовка текста
 const TitleWrap = styled.div`
-	margin-bottom: 3rem;
-	
+  margin-bottom: 3rem;
+
   ${mediaQueries(sm, `
 		margin-bottom: 2rem;
 	`)}
@@ -79,13 +78,13 @@ const TitleWrap = styled.div`
   ${mediaQueries(xl, `
 		margin-bottom: 35px;
 	`)}
-`
+`;
 
 // Заголовок
 const SectionTitle = styled.h3`
-	margin-top: 0;
+  margin-top: 0;
   font-size: 1.8rem;
-	text-align: center;
+  text-align: center;
 
   ${mediaQueries(sm, `
 		font-size: 1.3rem;
@@ -98,18 +97,18 @@ const SectionTitle = styled.h3`
   ${mediaQueries(xl, `
   	margin-bottom: 15px;  	
 	`)}
-`
+`;
 
 // Текст под заголовком
 const Text = styled.p`
-	margin-top: 0;
-	text-align: center;
-`
+  margin-top: 0;
+  text-align: center;
+`;
 
 // Блок с решениями
 const Solutions = styled.ul`
   display: flex;
-	flex-direction: column;
+  flex-direction: column;
 
   ${mediaQueries(lg, `
   	flex-direction: row;
@@ -119,21 +118,21 @@ const Solutions = styled.ul`
   ${mediaQueries(xl, `
   	padding: 0 85px;
 	`)}
-`
+`;
 
 // Решение
 const SolutionItem = styled.li`
   display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 4rem;
-	
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+
   .title {
     margin-bottom: 1rem;
     color: var(--color-blue-font);
-		font-weight: 600;
-		font-size: 7.6rem;
-	}
+    font-weight: 600;
+    font-size: 7.6rem;
+  }
 
   ${mediaQueries(sm, `
   	margin-bottom: 3rem;
@@ -169,7 +168,7 @@ const SolutionItem = styled.li`
 			font-size: 84px;
 		}
 	`)}
-`
+`;
 
 // Компонент с сеткой
 class SectionNumbers extends React.Component {
@@ -184,7 +183,7 @@ class SectionNumbers extends React.Component {
 				{title: '10', description: 'Используйте готовое'},
 				{title: '+5K', description: 'Используйте готовое'},
 			]
-		}
+		};
 	}
 
 	render() {
@@ -199,20 +198,20 @@ class SectionNumbers extends React.Component {
 						<Text>{this.state.subTitleText}</Text>
 					</TitleWrap>
 					<Solutions>
-							{
-								this.state.solutions.map(item => {
-									return (
-										<SolutionItem key={item.title}>
-											<div className="title">{item.title}</div>
-											<div className="description">{item.description}</div>
-										</SolutionItem>
-									)
-								})
-							}
+						{
+							this.state.solutions.map(item => {
+								return (
+									<SolutionItem key={item.title}>
+										<div className="title">{item.title}</div>
+										<div className="description">{item.description}</div>
+									</SolutionItem>
+								);
+							})
+						}
 					</Solutions>
 				</Container>
 			</SectionNumbersWrap>
-		)
+		);
 	}
 }
 

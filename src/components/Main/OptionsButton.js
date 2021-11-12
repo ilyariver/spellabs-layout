@@ -49,12 +49,9 @@ const Button = styled.a`
 `
 
 class OptionsButton extends React.Component {
-	constructor(props) {
-		super(props);
-	}
-
 
 	render() {
+
 		return (
 			<Button>
 				<span>{this.props.buttonTitle || "Кнопка"}</span>

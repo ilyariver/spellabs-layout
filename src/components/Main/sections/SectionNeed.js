@@ -6,20 +6,19 @@ import gridBreakpoints from '../../../cssVar';
 import support from '../../../assets/images/support.png';
 
 // Размеры устройств
-const { sm, md, lg, xl, xxl } = gridBreakpoints;
-
+const {sm, md, lg, xl} = gridBreakpoints;
 
 // Обертка секци
 const SectionNeedWrap = styled.section`
-	background-color: var(--color-gray);
+  background-color: var(--color-gray);
   padding-top: 4rem;
   padding-bottom: 4rem;
-	
-	.section-container {
+
+  .section-container {
     display: flex;
-		flex-direction: column;
+    flex-direction: column;
     align-items: center;
-	}
+  }
 
   ${mediaQueries(md, `  	
 		.section-container {
@@ -35,12 +34,12 @@ const SectionNeedWrap = styled.section`
   ${mediaQueries(xl, `
   	padding-top: 70px;	
 	`)}
-`
+`;
 
 // Заголовок
 const SectionTitle = styled.h4`
   margin-top: 0;
-	margin-bottom: 50px;
+  margin-bottom: 50px;
   font-size: 1.8rem;
   text-align: center;
 
@@ -55,7 +54,7 @@ const SectionTitle = styled.h4`
   ${mediaQueries(xl, `
   	margin-bottom: 47px;  	
 	`)}
-`
+`;
 
 // Контентная часть секции под заголовком
 const Content = styled.div`
@@ -68,11 +67,11 @@ const Content = styled.div`
   ${mediaQueries(xl, `
 		justify-content: start;
 	`)}
-`
+`;
 
 // Блок с картинкой
 const ImageWrap = styled.div`
-	margin-bottom: 4rem;	
+  margin-bottom: 4rem;
 
   ${mediaQueries(md, `
   	margin: 0 auto;
@@ -93,7 +92,7 @@ const ImageWrap = styled.div`
   ${mediaQueries(xl, `
   	width: auto;
 	`)}
-`
+`;
 
 // Список возможностей
 const ContentList = styled.ul`
@@ -107,10 +106,10 @@ const ContentList = styled.ul`
   	padding-top: 25px;
     margin-left: 50px;
 	`)}
-`
+`;
 
 const Item = styled.li`
-	margin-bottom: 3rem;
+  margin-bottom: 3rem;
 
   ${mediaQueries(lg, `
   	margin-bottom: 0;
@@ -119,28 +118,28 @@ const Item = styled.li`
   ${mediaQueries(xl, `
   	margin-bottom: 10px;
 	`)}
-`
+`;
 
 // Обертка заголовка и порядкого номера
 const TitleWrap = styled.div`
   display: flex;
-	align-items: center;
+  align-items: center;
 
   ${mediaQueries(xl, `
   	margin-bottom: 10px;
 	`)}
-`
+`;
 
 // Порядковый номер пункта
 const SerialNumber = styled.div`
   display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: var(--color-yellow-font);
-	min-width: 3rem;
-	min-height: 3rem;
-	border-radius: 50%;
-	margin-right: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-yellow-font);
+  min-width: 3rem;
+  min-height: 3rem;
+  border-radius: 50%;
+  margin-right: 1rem;
   font-size: 1.5rem;
 
   ${mediaQueries(md, `
@@ -163,13 +162,13 @@ const SerialNumber = styled.div`
 		margin-right: 15px;
   	font-size: 20px; 	
 	`)}
-`
+`;
 
 // Текст заголовка
 const Title = styled.h5`
-	margin: 0;
-	font-size: 1.7rem;
-	text-transform: uppercase;
+  margin: 0;
+  font-size: 1.7rem;
+  text-transform: uppercase;
 
   ${mediaQueries(md, `
   	font-size: 1rem; 	
@@ -182,14 +181,14 @@ const Title = styled.h5`
   ${mediaQueries(xl, `
   	font-size: 20px; 	
 	`)}
-`
+`;
 
 // Текст пункиа
 const Text = styled.p`
-	width: 22rem;
-	color: var(--color-gray-font);
-	font-size: 1.2rem;
-	line-height: 2.3rem;
+  width: 22rem;
+  color: var(--color-gray-font);
+  font-size: 1.2rem;
+  line-height: 2.3rem;
 
   ${mediaQueries(sm, `
   	width: 23rem; 	
@@ -213,7 +212,7 @@ const Text = styled.p`
 		font-size: 20px;
 		line-height: 35px;
 	`)}
-`
+`;
 
 
 // Компонент секции "Это то, что вам нужно"
@@ -223,18 +222,25 @@ class SectionNeed extends React.Component {
 		this.state = {
 			title: 'Это то, что вам нужно',
 			dignityList: [
-				{title: 'Полная интеграция', text: 'Используйте готовое решение для \n' +
+				{
+					title: 'Полная интеграция', text: 'Используйте готовое решение для \n' +
 						'трансформации портала в цифровое \n' +
-						'рабочее место '},
-				{title: 'Поддержка', text: 'Все будет гладко, как шелк наша служба \n' +
-						'поддержки доступна 8/7 '},
-				{title: 'Возможность развития', text: 'Копите деньги – покупайте дополнительные \n' +
-						'блоки и дополняйте портал'},
+						'рабочее место '
+				},
+				{
+					title: 'Поддержка', text: 'Все будет гладко, как шелк наша служба \n' +
+						'поддержки доступна 8/7 '
+				},
+				{
+					title: 'Возможность развития', text: 'Копите деньги – покупайте дополнительные \n' +
+						'блоки и дополняйте портал'
+				},
 			]
-		}
+		};
 	}
+
 	render() {
-		const { title, dignityList } = this.state;
+		const {title, dignityList} = this.state;
 		return (
 			<SectionNeedWrap>
 				<Container className="section-container">
@@ -254,14 +260,14 @@ class SectionNeed extends React.Component {
 											</TitleWrap>
 											<Text>{item.text}</Text>
 										</Item>
-									)
+									);
 								})
 							}
 						</ContentList>
 					</Content>
 				</Container>
 			</SectionNeedWrap>
-		)
+		);
 	}
 }
 
