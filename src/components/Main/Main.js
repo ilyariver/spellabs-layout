@@ -1,17 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import SectionMain from './sections/SectionMain';
+import SectionNumbers from './sections/SectionNumbers';
+import SectionResults from './sections/SectionResults';
+import SectionNeed from './sections/SectionNeed';
 
-const MainWrap = styled.main`
+
+const PageMain = styled.main`
+	padding-top: 80px;
 `
 
 class Main extends React.Component {
 	render() {
 		return (
-			<MainWrap>
-				Мэйн
-			</MainWrap>
+			<PageMain>
+				<SectionMain />
+				<SectionNumbers />
+				<SectionResults />
+				<SectionNeed />
+			</PageMain>
 		)
 	}
 }
 
-export default Main
+export default Main;

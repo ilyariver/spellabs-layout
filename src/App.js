@@ -12,7 +12,7 @@ function App() {
   return (
       <AppWrap>
           <Header />
-          {/*<Main />*/}
+          <Main />
           {/*<Footer />*/}
       </AppWrap>
   );

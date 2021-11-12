@@ -21,12 +21,16 @@ const Container = styled.div`
   }
 
   @media (min-width: ${gridBreakpoints.xl}) {
-      width: 1140px;    
+      width: 1140px; 
   }
 
   @media (min-width: ${gridBreakpoints.xxl}) {
       width: 1320px;
+    	padding: 0 70px;
   }
 `
+
+// Функция с медиазарпосами
+export const mediaQueries = (width, style) => `@media (min-width: ${width}) {${style}}`;
 
 export default Container;
