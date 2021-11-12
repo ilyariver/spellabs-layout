@@ -5,12 +5,6 @@ html {
     font-size: calc(10px + 10.45 * (100vw - 375px) / 392);
 }
 
-@media (min-width: 576px) {
-    html {
-        font-size: calc(6px + 2 * (100vw - 992px) / 0);
-    }
-}
-
 @media (min-width: 768px) {
     html {
         font-size: calc(8px + 2 * (100vw - 72px) / 70);
@@ -47,10 +41,6 @@ body {
     color: var(--color-black);
 }
 
-body.modal-active {
-    overflow: hidden;
-}
-
 img {
     max-width: 100%;
 }
@@ -59,7 +49,6 @@ a {
     text-decoration: none;
     color: inherit;
 }
-
 
 ul {
     list-style-type: none;
@@ -75,12 +64,6 @@ ul {
     height: 1px !important;
     width: 1px !important;
     overflow: hidden;
-}
-
-.fixed-container {
-    padding: 0 20px;
-    max-width: 1040px;
-    margin: 0 auto;
 }
 
 figure {
