@@ -58,6 +58,7 @@ const Nav = styled.div`
   transform: translateX(100%);
 	transition: transform 0.2s ease-in-out;
 	font-size: 1.4rem;
+	overflow: auto;
 	z-index: 6;
 
   &.active {

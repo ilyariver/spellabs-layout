@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../../../globalContainer';
-import {mediaQueries} from '../../../globalContainer';
+import { mediaQueries } from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 import sap from '../../../assets/images/logos/logo-sap.jpeg';
 import bitrix from '../../../assets/images/logos/logo-bitrix.png';
@@ -11,7 +11,7 @@ import wordpress from '../../../assets/images/logos/logo-wordpress.png';
 const { sm, md, lg, xl } = gridBreakpoints;
 
 // Обертка секции
-const SectionCmsWrap = styled.section`
+const SectionCmsWrap = styled.section `
   background-color: var(--color-white);
   padding-top: 4rem;
   padding-bottom: 4rem;
