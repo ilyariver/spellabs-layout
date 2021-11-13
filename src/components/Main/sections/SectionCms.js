@@ -22,8 +22,8 @@ const SectionCmsWrap = styled.section `
 	`)}
 
   ${mediaQueries(xl, `
-  	padding-top: 70px;	
-  	padding-bottom: 70px;	
+  	padding-top: 107px;	
+		padding-bottom: 93px;
 	`)}
 `
 
@@ -39,12 +39,16 @@ const SectionTitle = styled.h4`
 	`)}
 
   ${mediaQueries(md, `
-    	margin-bottom: 80px;
+		margin-bottom: 80px;
 		font-size: 24px;
 	`)}
 
   ${mediaQueries(xl, `
-  	margin-bottom: 150px;  	
+  	margin-bottom: 150px;  
+  	
+  	.topText {
+  		margin-bottom: 15px;
+  	}	
 	`)}
 `
 
@@ -116,8 +120,10 @@ class SectionCms extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			title: 'ВЫ не привязаны к CMS-системам, \n' +
-				'наше решение подходит к любой платформе',
+			title: {
+				topText: 'ВЫ не привязаны к CMS-системам, ',
+				bottomText: 'наше решение подходит к любой платформе'
+			},
 			logo: [
 				{alt: 'bitrix', image: bitrix},
 				{alt: 'sap', image: sap},
@@ -130,7 +136,10 @@ class SectionCms extends React.Component {
 		return (
 			<SectionCmsWrap>
 				<Container className="section-container">
-					<SectionTitle>{this.state.title}</SectionTitle>
+					<SectionTitle>
+						<div className="topText">{this.state.title.topText}</div>
+						<div className="bottomText">{this.state.title.bottomText}</div>
+					</SectionTitle>
 					<LogoList>
 						{
 							this.state.logo.map(item => {

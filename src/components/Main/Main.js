@@ -7,6 +7,7 @@ import SectionNeed from './sections/SectionNeed';
 import SectionCms from './sections/SectionCms';
 import SectionLevels from './sections/SectionLevels';
 import SectionSlider from './sections/SectionSlider';
+import SectionPartners from './sections/SectionPartners';
 
 const PageMain = styled.main`
 	padding-top: 80px;
@@ -23,6 +24,7 @@ class Main extends React.Component {
 				<SectionCms />
 				<SectionLevels />
 				<SectionSlider />
+				<SectionPartners />
 			</PageMain>
 		)
 	}

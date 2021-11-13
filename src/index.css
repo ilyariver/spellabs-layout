@@ -20,6 +20,7 @@ html {
 :root {
     /*colors*/
     --color-black: #050505;
+    --color-slide-button: #707070;
     --color-gray: #F7F7F7;
     --color-gray-font: #908C8C;
     --color-blue: #1B3DCB;

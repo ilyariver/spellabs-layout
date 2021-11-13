@@ -29,10 +29,12 @@ const SectionNeedWrap = styled.section`
 
   ${mediaQueries(lg, `
   	padding-top: 50px;	
+  	padding-bottom: 120px;
 	`)}
 
   ${mediaQueries(xl, `
-  	padding-top: 70px;	
+  	padding-top: 70px;
+  	padding-bottom: 137px;	
 	`)}
 `;
 
