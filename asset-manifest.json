@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/spellabs-layout/static/css/main.66dbdaf8.chunk.css",
+    "main.js": "/spellabs-layout/static/js/main.faa3efba.chunk.js",
+    "main.js.map": "/spellabs-layout/static/js/main.faa3efba.chunk.js.map",
+    "runtime-main.js": "/spellabs-layout/static/js/runtime-main.72109da7.js",
+    "runtime-main.js.map": "/spellabs-layout/static/js/runtime-main.72109da7.js.map",
+    "static/css/2.717a1bb3.chunk.css": "/spellabs-layout/static/css/2.717a1bb3.chunk.css",
+    "static/js/2.908f73b9.chunk.js": "/spellabs-layout/static/js/2.908f73b9.chunk.js",
+    "static/js/2.908f73b9.chunk.js.map": "/spellabs-layout/static/js/2.908f73b9.chunk.js.map",
+    "static/js/3.428ab689.chunk.js": "/spellabs-layout/static/js/3.428ab689.chunk.js",
+    "static/js/3.428ab689.chunk.js.map": "/spellabs-layout/static/js/3.428ab689.chunk.js.map",
+    "index.html": "/spellabs-layout/index.html",
+    "static/css/2.717a1bb3.chunk.css.map": "/spellabs-layout/static/css/2.717a1bb3.chunk.css.map",
+    "static/css/main.66dbdaf8.chunk.css.map": "/spellabs-layout/static/css/main.66dbdaf8.chunk.css.map",
+    "static/js/2.908f73b9.chunk.js.LICENSE.txt": "/spellabs-layout/static/js/2.908f73b9.chunk.js.LICENSE.txt",
+    "static/media/arrow-elipse.7a18b3b6.svg": "/spellabs-layout/static/media/arrow-elipse.7a18b3b6.svg",
+    "static/media/arrow1.ad0630ca.svg": "/spellabs-layout/static/media/arrow1.ad0630ca.svg",
+    "static/media/arrow2.b2c092e4.svg": "/spellabs-layout/static/media/arrow2.b2c092e4.svg",
+    "static/media/arrow3.ce0f0057.svg": "/spellabs-layout/static/media/arrow3.ce0f0057.svg",
+    "static/media/arrow5.f89b1fdc.svg": "/spellabs-layout/static/media/arrow5.f89b1fdc.svg",
+    "static/media/arrowr-right.723aff0d.svg": "/spellabs-layout/static/media/arrowr-right.723aff0d.svg",
+    "static/media/burger.0f26fc20.svg": "/spellabs-layout/static/media/burger.0f26fc20.svg",
+    "static/media/close.2001e956.svg": "/spellabs-layout/static/media/close.2001e956.svg",
+    "static/media/grid.0189485e.svg": "/spellabs-layout/static/media/grid.0189485e.svg",
+    "static/media/header-img.d9628bb2.png": "/spellabs-layout/static/media/header-img.d9628bb2.png",
+    "static/media/logo-bitrix.fe57186d.webp": "/spellabs-layout/static/media/logo-bitrix.fe57186d.webp",
+    "static/media/logo-sap.036034ec.webp": "/spellabs-layout/static/media/logo-sap.036034ec.webp",
+    "static/media/logo-wordpress.201b0fff.webp": "/spellabs-layout/static/media/logo-wordpress.201b0fff.webp",
+    "static/media/logo.791c6c6c.svg": "/spellabs-layout/static/media/logo.791c6c6c.svg",
+    "static/media/result.fba8aa63.png": "/spellabs-layout/static/media/result.fba8aa63.png",
+    "static/media/saving.c72d9285.png": "/spellabs-layout/static/media/saving.c72d9285.png",
+    "static/media/support.cf940831.png": "/spellabs-layout/static/media/support.cf940831.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.72109da7.js",
+    "static/css/2.717a1bb3.chunk.css",
+    "static/js/2.908f73b9.chunk.js",
+    "static/css/main.66dbdaf8.chunk.css",
+    "static/js/main.faa3efba.chunk.js"
+  ]
+}
