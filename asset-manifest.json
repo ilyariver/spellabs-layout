@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/spellabs-layout/static/css/main.66dbdaf8.chunk.css",
-    "main.js": "/spellabs-layout/static/js/main.faa3efba.chunk.js",
-    "main.js.map": "/spellabs-layout/static/js/main.faa3efba.chunk.js.map",
+    "main.js": "/spellabs-layout/static/js/main.12a97594.chunk.js",
+    "main.js.map": "/spellabs-layout/static/js/main.12a97594.chunk.js.map",
     "runtime-main.js": "/spellabs-layout/static/js/runtime-main.72109da7.js",
     "runtime-main.js.map": "/spellabs-layout/static/js/runtime-main.72109da7.js.map",
     "static/css/2.717a1bb3.chunk.css": "/spellabs-layout/static/css/2.717a1bb3.chunk.css",
@@ -37,6 +37,6 @@
     "static/css/2.717a1bb3.chunk.css",
     "static/js/2.908f73b9.chunk.js",
     "static/css/main.66dbdaf8.chunk.css",
-    "static/js/main.faa3efba.chunk.js"
+    "static/js/main.12a97594.chunk.js"
   ]
 }
