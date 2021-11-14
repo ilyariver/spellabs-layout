@@ -153,12 +153,12 @@ class SectionMain extends React.Component {
   }
 
 	render() {
-    
+
 
 		return (
 			<SectionMainWrap>
 				<Container className="section-container">
-					<SectionTitle 
+					<SectionTitle
             data-aos="fade-left"
             data-aos-duration="700">
 						Трансформируйте
@@ -171,7 +171,7 @@ class SectionMain extends React.Component {
              data-aos-delay="1000">
 						<img src={backImg} alt="Изображение"/>
 					</SectionImage>
-					<OptionsButton 
+					<OptionsButton
             buttonTitle={'Начать трансформацию'}
             />
 				</Container>

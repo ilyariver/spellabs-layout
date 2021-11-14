@@ -243,11 +243,11 @@ const LevelItem = styled.li`
 		}	
 		
 		.triangle {
-			border-width: 0 0 45px 45px;
+			border-width: 0 0 50px 50px;
 
 			&:after {
-				top: 10px;
-				left: -35px;
+				top: 14px;
+				left: -36px;
 				border-width: 0 0 30px 30px;
 			}
 		}
@@ -362,10 +362,10 @@ class SectionLevels extends React.Component {
 						{
 							this.state.levels.map((item, i)=> {
 								return (
-									<LevelItem 
+									<LevelItem
 										key={item.title}
-										data-aos="zoom-out" 
-										data-aos-delay={i * 300} 
+										data-aos="zoom-out"
+										data-aos-delay={i * 300}
 										data-aos-duration = "700"
 										data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 										<div className={'figure ' + item.figure}></div>

@@ -5,6 +5,7 @@ import { mediaQueries } from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 import saving from '../../../assets/images/saving.png';
 import result from '../../../assets/images/result.png';
+import arrowToNext from '../../../assets/images/arrow3.svg';
 
 // Размеры устройств
 const { sm, md, lg, xl, xxl } = gridBreakpoints;
@@ -14,6 +15,11 @@ const SectionResultsMain = styled.section `
   background-color: var(--color-white);
   padding-top: 4rem;
   padding-bottom: 4rem;
+	
+	
+	.section-container {
+		position: relative;
+	}
 
   ${mediaQueries(lg, `
   	padding-top: 50px;	
@@ -24,6 +30,18 @@ const SectionResultsMain = styled.section `
   	padding-top: 70px;	
   	padding-bottom: 135px;	
 	`)}
+`;
+
+// Стрелка указывающая на следующий блок
+const ArrowTo = styled.div`
+  position: absolute;
+  right: 430px;
+  bottom: -182px;
+  z-index: 4;
+
+  //img {
+  //  width: 7rem;
+  //}
 `;
 
 // Заголовок
@@ -233,8 +251,8 @@ class SectionResults extends React.Component {
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"
-						data-aos-duration = "700">{this.state.title}</SectionTitle>
-					<ContentList						
+						data-aos-duration="700">{this.state.title}</SectionTitle>
+					<ContentList
 						data-aos-anchor-placement="center-bottom">
 						{
 							this.state.offer.map((item, i) => {
@@ -261,6 +279,13 @@ class SectionResults extends React.Component {
 							})
 						}
 					</ContentList>
+					<ArrowTo>
+						<img
+							src={arrowToNext}
+							alt="указатель"
+							data-aos="fade-down"
+							data-aos-delay="700"/>
+					</ArrowTo>
 				</Container>
 			</SectionResultsMain>
 		);

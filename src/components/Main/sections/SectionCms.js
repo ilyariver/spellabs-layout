@@ -6,6 +6,7 @@ import gridBreakpoints from '../../../cssVar';
 import sap from '../../../assets/images/logos/logo-sap.jpeg';
 import bitrix from '../../../assets/images/logos/logo-bitrix.png';
 import wordpress from '../../../assets/images/logos/logo-wordpress.png';
+import arrowToNext from '../../../assets/images/arrow5.svg';
 
 // Размеры устройств
 const { sm, md, lg, xl } = gridBreakpoints;
@@ -15,6 +16,10 @@ const SectionCmsWrap = styled.section `
   background-color: var(--color-white);
   padding-top: 7rem;
   padding-bottom: 9rem;
+	
+	.section-container {
+		position: relative;
+	}
 
   ${mediaQueries(lg, `
   	padding-top: 50px;	
@@ -26,6 +31,19 @@ const SectionCmsWrap = styled.section `
 		padding-bottom: 93px;
 	`)}
 `
+
+// Стрелка указывающая на следующий блок
+const ArrowTo = styled.div`
+  position: absolute;
+  left: 50%;
+  bottom: -165px;
+	transform: translateX(-50%)!important;
+  z-index: 4;
+
+  //img {
+  //  width: 7rem;
+  //}
+`;
 
 // Заголовок
 const SectionTitle = styled.h4`
@@ -143,14 +161,14 @@ class SectionCms extends React.Component {
 						<div className="topText">{this.state.title.topText}</div>
 						<div className="bottomText">{this.state.title.bottomText}</div>
 					</SectionTitle>
-					<LogoList						
+					<LogoList
 						data-aos-anchor-placement="center-bottom">
 						{
 							this.state.logo.map((item, i) => {
 								return (
-									<LogoItem 
+									<LogoItem
 										key={item.alt}
-										data-aos="zoom-out" 
+										data-aos="zoom-out"
 										data-aos-delay={i * 300}
 										data-aos-duration = "700"
 										data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
@@ -160,6 +178,13 @@ class SectionCms extends React.Component {
 							})
 						}
 					</LogoList>
+					<ArrowTo>
+						<img
+							src={arrowToNext}
+							alt="указатель"
+							data-aos="fade-down"
+							data-aos-delay="700"/>
+					</ArrowTo>
 				</Container>
 			</SectionCmsWrap>
 		)

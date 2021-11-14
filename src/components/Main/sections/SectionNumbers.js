@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Container from '../../../globalContainer';
 import { mediaQueries } from '../../../globalContainer';
 import grid from '../../../assets/images/grid.svg';
+import arrowDown from '../../../assets/images/arrow1.svg';
+import arrowToNext from '../../../assets/images/arrow2.svg';
 import gridBreakpoints from '../../../cssVar';
 
 // Размеры устройств
@@ -51,17 +53,30 @@ const SectionNumbersWrap = styled.section `
 	`)}
 `;
 
-// Стрелка от кнопки
-// const ArrowFrom = styled.div`
-//   position: absolute;
-//   top: -10rem;
-//   left: 12rem;
-//   z-index: 4;
-//
-//   img {
-//     width: 7rem;
-//   }
-// `;
+// Стрелка от кнопки указывающая на следующий блок
+const ArrowFrom = styled.div`
+  position: absolute;
+  top: -402px;
+  left: 230px;
+  z-index: 4;
+
+  //img {
+  //  width: 7rem;
+  //}
+`;
+
+// Стрелка указывающая на следующий блок
+const ArrowTo = styled.div`
+  position: absolute;
+  left: 50%;
+  bottom: -232px;
+	transform: translateX(-50%)!important;
+  z-index: 4;
+
+  //img {
+  //  width: 7rem;
+  //}
+`;
 
 // Обертка заголовка текста
 const TitleWrap = styled.div`
@@ -189,11 +204,14 @@ class SectionNumbers extends React.Component {
 	render() {
 		return (
 			<SectionNumbersWrap>
-				{/*<ArrowFrom>*/}
-				{/*	<img src={arrowDown} alt="указатель"/>*/}
-				{/*</ArrowFrom>*/}
+
 				<Container className="section-container">
-					<TitleWrap 
+					<ArrowFrom
+						data-aos="zoom-out"
+						data-aos-delay="1200">
+						<img src={arrowDown} alt="указатель"/>
+					</ArrowFrom>
+					<TitleWrap
 						data-aos="fade-up"
 						data-aos-duration = "700"
 						>
@@ -205,9 +223,9 @@ class SectionNumbers extends React.Component {
 						{
 							this.state.solutions.map((item, i)=> {
 								return (
-									<SolutionItem 
-										data-aos="zoom-in-up" 
-										data-aos-delay={i * 500} 
+									<SolutionItem
+										data-aos="zoom-in-up"
+										data-aos-delay={i * 500}
 										key={item.title}
 										data-aos-duration = "700"
 										data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
@@ -218,6 +236,13 @@ class SectionNumbers extends React.Component {
 							})
 						}
 					</Solutions>
+					<ArrowTo>
+						<img
+							src={arrowToNext}
+							alt="указатель"
+							data-aos="fade-down"
+							data-aos-delay="700"/>
+					</ArrowTo>
 				</Container>
 			</SectionNumbersWrap>
 		);

@@ -4,6 +4,7 @@ import Container from '../../../globalContainer';
 import { mediaQueries } from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 import support from '../../../assets/images/support.png';
+import arrowToNext from '../../../assets/images/arrow3.svg';
 
 // Размеры устройств
 const { sm, md, lg, xl } = gridBreakpoints;
@@ -15,6 +16,7 @@ const SectionNeedWrap = styled.section `
   padding-bottom: 4rem;
 
   .section-container {
+		position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,6 +38,18 @@ const SectionNeedWrap = styled.section `
   	padding-top: 70px;
   	padding-bottom: 137px;	
 	`)}
+`;
+
+// Стрелка указывающая на следующий блок
+const ArrowTo = styled.div`
+  position: absolute;
+  right: 430px;
+  bottom: -200px;
+  z-index: 4;
+
+  //img {
+  //  width: 7rem;
+  //}
 `;
 
 // Заголовок
@@ -260,10 +274,10 @@ class SectionNeed extends React.Component {
 							{
 								dignityList.map((item, i) => {
 									return (
-										<Item 
+										<Item
 											key={item.title}
-											data-aos="fade-left" 
-											data-aos-delay={i * 400} 
+											data-aos="fade-left"
+											data-aos-delay={i * 400}
 											data-aos-duration = "1000"
 											data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 											<TitleWrap>
@@ -277,6 +291,13 @@ class SectionNeed extends React.Component {
 							}
 						</ContentList>
 					</Content>
+					<ArrowTo>
+						<img
+							src={arrowToNext}
+							alt="указатель"
+							data-aos="fade-down"
+							data-aos-delay="700"/>
+					</ArrowTo>
 				</Container>
 			</SectionNeedWrap>
 		);

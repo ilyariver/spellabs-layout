@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import AOS from 'aos';
 import { darken, lighten } from 'polished';
 import gridBreakpoints from '../../cssVar';
 import closeIcon from '../../assets/images/icons/close.svg';
@@ -53,7 +54,7 @@ const Nav = styled.div`
   right: 0;
   height: 100vh;
   width: 30rem;
-  padding: 60px 5rem;
+  padding: 100px 5rem 50px;
   background-color: #fff;
   box-shadow: -1px 0 33px 0 #0000002b;
   transform: translateX(100%);
@@ -194,42 +195,58 @@ class NavListMenu extends React.Component {
 		super();
 
 		this.state = {
-			active: false
+			active: false,
+			menu: [
+				{title: 'Преимущества', link: '#'},
+				{title: 'Подход', link: '#'},
+				{title: 'Клиенты', link: '#'},
+				{title: 'Дизайн', link: '#'},
+				{title: 'Контакты', link: '#'},
+			],
+			FADE_LEFT: '',
 		};
 
 		this.toggleMenu = this.toggleMenu.bind(this);
 	}
 
 	toggleMenu() {
-		this.setState({active: !this.state.active});
+		debugger
+		AOS.init({
+			useClassNames: false,
+			// initClassName: 'aos-init',
+			animatedClassName: 'aos-animate',
+		})
+		this.setState({active: !this.state.active, FADE_LEFT: "fade-left",});
 	}
 
 	render() {
 		return (
 			<>
 				<Nav
-				className={this.state.active ? 'active' : ''}>
+				className={this.state.active ? "active" : ''}>
 				<CloseButton
 					aria-label="Убрать меню"
 					onClick={this.toggleMenu}>
 					<span></span>
 				</CloseButton>
-				<NavList>
-					<NavItem>
-						<a href="#">Преимущества</a>
-					</NavItem>
-					<NavItem>
-						<a href="#">Подход</a>
-					</NavItem>
-					<NavItem>
-						<a href="#">Клиенты</a>
-					</NavItem>
-					<NavItem>
-						<a href="#">Дизайн</a>
-					</NavItem>
-					<NavItem>
-						<a href="#">Контакты</a>
-					</NavItem>
+				<NavList
+					data-aos-anchor-placement="center-bottom">
+					{
+						this.state.menu.map((item, i) => {
+							return (
+								<NavItem
+									key={item.title}
+									className={this.state.active ? "aos-animate" : ''}
+									data-aos="zoom-in-left"
+									data-aos-delay={i * 300}
+									data-aos-duration = "500"
+									data-aos-easing="cubic-bezier(.175,.885,.32,1.275)"
+								>
+									<a href={item.link}>{item.title}</a>
+								</NavItem>
+							)
+						})
+					}
 				</NavList>
 				<Contacts>
 					<a href="#">Контакты</a>

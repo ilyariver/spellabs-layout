@@ -10,7 +10,7 @@ import gridBreakpoints from '../../../cssVar';
 import arrowRight from '../../../assets/images/icons/arrow-elipse.svg'
 
 // Размеры устройств
-const { sm, md, lg, xl, xxl } = gridBreakpoints;
+const { sm, md, lg, xl } = gridBreakpoints;
 
 // Обертка секции
 const SectionSliderMain = styled.section `
@@ -18,6 +18,10 @@ const SectionSliderMain = styled.section `
   padding-top: 4rem;
   padding-bottom: 4rem;
   overflow: hidden;
+	
+	.section-container {
+		position: relative;
+	}
 	
 	// swiper
   .swiper-container {
@@ -131,6 +135,8 @@ const SectionSliderMain = styled.section `
 	`)}
 `;
 
+
+
 // Заголовок
 const SectionTitle = styled.h2`
   margin-top: 0;
@@ -207,8 +213,8 @@ class SectionSlider extends React.Component {
 						data-aos="fade-up"
 						data-aos-duration = "700">{this.state.title}</SectionTitle>
 					<Swiper
-						data-aos="zoom-out" 
-						data-aos-delay="400" 
+						data-aos="zoom-out"
+						data-aos-delay="400"
 						data-aos-duration = "700"
 						data-aos-anchor-placement="center-bottom"
 						spaceBetween={50}
@@ -225,16 +231,13 @@ class SectionSlider extends React.Component {
 						{
 							this.state.preview.map((item, i) => {
 								return (
-									<SwiperSlide 
-										key={i}
-										>
+									<SwiperSlide key={i}>
 										<SlideItem></SlideItem>
 									</SwiperSlide>
 								);
 							})
 						}
 					</Swiper>
-
 				</Container>
 			</SectionSliderMain>
 		);
