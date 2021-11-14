@@ -20,7 +20,7 @@ const {sm, md, lg, xl} = gridBreakpoints;
 const SectionPartnersMain = styled.section`
   position: relative;
   background-color: var(--color-white);
-  padding-top: 4rem;
+  padding-top: 10rem;
   padding-bottom: 10rem;
 
   .section-container {
@@ -100,8 +100,15 @@ const SectionPartnersMain = styled.section`
 	`)}
 
   ${mediaQueries(md, `
-  
+  	padding-top: 5rem;
+    padding-bottom: 8rem;
+
+	.section-container {
+		width: 550px;
+	}
+
   	.swiper-button-prev, .swiper-button-next {
+		transform: translateY(-13%);
 		  &:after {
 			display: block;
 			}

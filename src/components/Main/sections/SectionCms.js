@@ -14,16 +14,21 @@ const { sm, md, lg, xl } = gridBreakpoints;
 // Обертка секции
 const SectionCmsWrap = styled.section `
   background-color: var(--color-white);
-  padding-top: 7rem;
+  padding-top: 10rem;
   padding-bottom: 9rem;
 	
 	.section-container {
 		position: relative;
 	}
 
-  ${mediaQueries(lg, `
-  	padding-top: 50px;	
-  	padding-bottom: 50px;	
+  ${mediaQueries(md, `
+  	padding-top: 5rem;
+  padding-bottom: 5rem;	
+	`)}
+
+	${mediaQueries(lg, `
+	padding-top: 100px;	
+	padding-bottom: 50px;	
 	`)}
 
   ${mediaQueries(xl, `
@@ -36,13 +41,17 @@ const SectionCmsWrap = styled.section `
 const ArrowTo = styled.div`
   position: absolute;
   left: 50%;
-  bottom: -165px;
+  bottom: -210px;
 	transform: translateX(-50%)!important;
   z-index: 4;
 
-  //img {
-  //  width: 7rem;
-  //}
+  ${mediaQueries(lg, `
+  	bottom: -130px;
+	`)}
+
+  ${mediaQueries(xl, `
+  	bottom: -165px;
+	`)}
 `;
 
 // Заголовок
@@ -152,7 +161,8 @@ class SectionCms extends React.Component {
 
 	render() {
 		return (
-			<SectionCmsWrap>
+			<SectionCmsWrap
+			data-aos-anchor-placement="center-bottom">
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"
@@ -161,8 +171,7 @@ class SectionCms extends React.Component {
 						<div className="topText">{this.state.title.topText}</div>
 						<div className="bottomText">{this.state.title.bottomText}</div>
 					</SectionTitle>
-					<LogoList
-						data-aos-anchor-placement="center-bottom">
+					<LogoList>
 						{
 							this.state.logo.map((item, i) => {
 								return (

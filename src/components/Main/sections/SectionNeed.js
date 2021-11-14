@@ -5,15 +5,16 @@ import { mediaQueries } from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 import support from '../../../assets/images/support.png';
 import arrowToNext from '../../../assets/images/arrow3.svg';
+import arrowDown from '../../../assets/images/arrow2.svg';
 
 // Размеры устройств
-const { sm, md, lg, xl } = gridBreakpoints;
+const { sm, md, lg, xl, xxl } = gridBreakpoints;
 
 // Обертка секци
 const SectionNeedWrap = styled.section `
   background-color: var(--color-gray);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 10rem;
+  padding-bottom: 7rem;
 
   .section-container {
 		position: relative;
@@ -22,15 +23,19 @@ const SectionNeedWrap = styled.section `
     align-items: center;
   }
 
-  ${mediaQueries(md, `  	
+  ${mediaQueries(md, `  
+		padding-top: 5rem;
+		padding-bottom: 2rem;
+
 		.section-container {
 			display: block;
 			align-items: start;
 		}
+
 	`)}
 
   ${mediaQueries(lg, `
-  	padding-top: 50px;	
+  	padding-top: 100px;	
   	padding-bottom: 120px;
 	`)}
 
@@ -43,13 +48,16 @@ const SectionNeedWrap = styled.section `
 // Стрелка указывающая на следующий блок
 const ArrowTo = styled.div`
   position: absolute;
-  right: 430px;
-  bottom: -200px;
+  left: 50%;
+  bottom: -180px;
+  transform: translateX(-50%);
   z-index: 4;
 
-  //img {
-  //  width: 7rem;
-  //}
+  ${mediaQueries(xxl, `
+	left: auto;
+  	right: 304px;
+  	bottom: -200px;  	
+	`)}
 `;
 
 // Заголовок
@@ -125,14 +133,18 @@ const ContentList = styled.ul`
 `;
 
 const Item = styled.li`
-  margin-bottom: 3rem;
+  &::not(::last-child) {
+	  margin-bottom: 3rem;
+	}
 
   ${mediaQueries(lg, `
   	margin-bottom: 0;
 	`)}
 
   ${mediaQueries(xl, `
+  &::not(::last-child) {
   	margin-bottom: 10px;
+	}
 	`)}
 `;
 
@@ -235,6 +247,7 @@ const Text = styled.p`
 class SectionNeed extends React.Component {
 	constructor() {
 		super();
+		this.handleWindowResize = this.handleWindowResize.bind(this);
 		this.state = {
 			title: 'Это то, что вам нужно',
 			dignityList: [
@@ -251,14 +264,34 @@ class SectionNeed extends React.Component {
 					title: 'Возможность развития', text: 'Копите деньги – покупайте дополнительные \n' +
 						'блоки и дополняйте портал'
 				},
-			]
+			],
+			innerWidth: window.innerWidth,
+			innerHeight: window.innerHeight,
 		};
 	}
 
+	// Получаем размер окна при изменение размерова браузера
+	
+	handleWindowResize(e) {
+		const { innerWidth, innerHeight } = window;		
+
+		this.setState({innerWidth, innerHeight});
+	}
+
+	componentDidMount() {
+		window.addEventListener('resize', this.handleWindowResize);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.handleWindowResize);
+	}
+
 	render() {
-		const {title, dignityList} = this.state;
+		const {title, dignityList, innerWidth, innerHeight } = this.state;
+
 		return (
-			<SectionNeedWrap>
+			<SectionNeedWrap
+				data-aos-anchor-placement="bottom-top">
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"
@@ -270,7 +303,7 @@ class SectionNeed extends React.Component {
 							<img src={support} alt={title}/>
 						</ImageWrap>
 						<ContentList
-							data-aos-anchor-placement="center-bottom">
+							>
 							{
 								dignityList.map((item, i) => {
 									return (
@@ -293,7 +326,7 @@ class SectionNeed extends React.Component {
 					</Content>
 					<ArrowTo>
 						<img
-							src={arrowToNext}
+							src={innerWidth <= parseInt(xxl) ? arrowDown : arrowToNext}
 							alt="указатель"
 							data-aos="fade-down"
 							data-aos-delay="700"/>

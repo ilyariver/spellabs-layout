@@ -72,8 +72,9 @@ class Header extends React.Component {
 		return (
 			<PageHeader>
 				<Container className="header-container">
-					<HeaderLogo>
-						<a href="#">
+					<HeaderLogo
+            aria-label="Логотип компании">
+						<a href="/">
 							<img src={mainLogo} alt="Spellabs"/>
 						</a>
 					</HeaderLogo>

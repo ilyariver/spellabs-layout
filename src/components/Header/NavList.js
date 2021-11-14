@@ -177,10 +177,9 @@ const Contacts = styled.div`
 const BurgerButton = styled.button`
   background-color: transparent;
   border: none;
+  z-index: 10;
 
   & span {
-    background-image: url(${burgerIcon});
-    background-repeat: no-repeat;
     display: block;
     width: 30px;
     height: 30px;
@@ -210,7 +209,7 @@ class NavListMenu extends React.Component {
 	}
 
 	toggleMenu() {
-		debugger
+		
 		AOS.init({
 			useClassNames: false,
 			// initClassName: 'aos-init',
@@ -220,23 +219,24 @@ class NavListMenu extends React.Component {
 	}
 
 	render() {
+
+		const {active} = this.state;
 		return (
 			<>
 				<Nav
-				className={this.state.active ? "active" : ''}>
-				<CloseButton
+				className={active ? "active" : ''}>
+				{/* <CloseButton
 					aria-label="Убрать меню"
 					onClick={this.toggleMenu}>
 					<span></span>
-				</CloseButton>
-				<NavList
-					data-aos-anchor-placement="center-bottom">
+				</CloseButton> */}
+				<NavList>
 					{
 						this.state.menu.map((item, i) => {
 							return (
 								<NavItem
 									key={item.title}
-									className={this.state.active ? "aos-animate" : ''}
+									className={active ? "aos-animate" : ''}
 									data-aos="zoom-in-left"
 									data-aos-delay={i * 300}
 									data-aos-duration = "500"
@@ -253,9 +253,13 @@ class NavListMenu extends React.Component {
 				</Contacts>
 			</Nav>
 				<BurgerButton
-					aria-label="Показать меню"
+					aria-label={active ? "Закрыть меню" : "Открыть меню"}
 					onClick={this.toggleMenu}>
-					<span></span>
+					<span>
+						<img 
+							src={active ? closeIcon : burgerIcon} 
+							alt={active ? "Закрыть" : "Открыть"} />
+					</span>
 				</BurgerButton>
 			</>
 

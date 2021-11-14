@@ -11,7 +11,7 @@ const { sm, md, lg, xl } = gridBreakpoints;
 const SectionLevelsWrap = styled.section `
   position: relative;
   background-color: var(--color-blue);
-  padding-top: 5rem;
+  padding-top: 10rem;
   padding-bottom: 10rem;
   overflow: hidden;
 
@@ -21,7 +21,7 @@ const SectionLevelsWrap = styled.section `
 
   ${mediaQueries(md, `
   	padding-top: 3rem;
-		padding-bottom: 7rem;
+		padding-bottom: 4rem;
 	
 		.section-container {
 			&:after {
@@ -33,7 +33,7 @@ const SectionLevelsWrap = styled.section `
 
   ${mediaQueries(lg, `
   	padding-top: 100px;
-    padding-bottom: 200px;
+    padding-bottom: 100px;
 
     .section-container {
       &:after {

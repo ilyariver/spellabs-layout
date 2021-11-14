@@ -4,8 +4,6 @@ import Container from '../../../globalContainer';
 import OptionsButton from '../OptionsButton';
 import gridBreakpoints from '../../../cssVar';
 import backImg from '../../../assets/images/header-img.png';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const SectionMainWrap = styled.section`
   position: relative;
@@ -144,13 +142,6 @@ const SectionImage = styled.div`
 `;
 
 class SectionMain extends React.Component {
-
-  componentDidMount() {
-    AOS.init({
-      duration: 1000,
-      mirror: true
-    })
-  }
 
 	render() {
 

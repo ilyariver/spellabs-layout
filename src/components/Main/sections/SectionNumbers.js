@@ -8,10 +8,10 @@ import arrowToNext from '../../../assets/images/arrow2.svg';
 import gridBreakpoints from '../../../cssVar';
 
 // Размеры устройств
-const { sm, md, lg, xl } = gridBreakpoints;
+const { sm, md, lg, xl, xxl } = gridBreakpoints;
 
 // Обертка секции
-const SectionNumbersWrap = styled.section `
+const SectionNumbersWrap = styled.section`
   position: relative;
   background-color: var(--color-gray);
   padding-top: 10rem;
@@ -56,22 +56,28 @@ const SectionNumbersWrap = styled.section `
 // Стрелка от кнопки указывающая на следующий блок
 const ArrowFrom = styled.div`
   position: absolute;
-  top: -402px;
-  left: 230px;
+  top: -210px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 4;
 
   //img {
   //  width: 7rem;
   //}
+
+  ${mediaQueries(xxl, `
+		top: -402px;
+  		left: 450px;
+	`)}
 `;
 
 // Стрелка указывающая на следующий блок
 const ArrowTo = styled.div`
-  position: absolute;
-  left: 50%;
-  bottom: -232px;
+	position: absolute;
+	left: 50%;
+  	bottom: -232px;
 	transform: translateX(-50%)!important;
-  z-index: 4;
+  	z-index: 4;
 
   //img {
   //  width: 7rem;
@@ -189,45 +195,66 @@ const SolutionItem = styled.li`
 class SectionNumbers extends React.Component {
 	constructor() {
 		super();
-
+		this.handleWindowResize = this.handleWindowResize.bind(this)
 		this.state = {
 			titleText: 'Используйте готовое решение от профессионалов',
 			subTitleText: 'Это сэкономит кучу времени и даст кучу всего',
 			solutions: [
-				{title: '+20', description: 'Готовые модули'},
-				{title: '10', description: 'Используйте готовое'},
-				{title: '+5K', description: 'Используйте готовое'},
-			]
+				{ title: '+20', description: 'Готовые модули' },
+				{ title: '10', description: 'Используйте готовое' },
+				{ title: '+5K', description: 'Используйте готовое' },
+			],
+			innerWidth: window.innerWidth,
+			innerHeight: window.innerHeight,
 		};
+	}
+	
+	// Получаем размер окна при изменение размерова браузера
+	handleWindowResize(e) {
+		const { innerWidth, innerHeight } = window;		
+
+		this.setState({innerWidth, innerHeight});
+	}
+
+	componentDidMount() {
+		window.addEventListener('resize', this.handleWindowResize);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.handleWindowResize);
 	}
 
 	render() {
+		const { innerWidth } = this.state;
+		
 		return (
-			<SectionNumbersWrap>
+			<SectionNumbersWrap
+				data-aos-anchor-placement="center-bottom">
 
 				<Container className="section-container">
-					<ArrowFrom
+					<ArrowFrom>
+						<img 
 						data-aos="zoom-out"
-						data-aos-delay="1200">
-						<img src={arrowDown} alt="указатель"/>
+						data-aos-delay="1200"
+						src={innerWidth <= parseInt(xxl) ? arrowToNext : arrowDown} 
+						alt="указатель" />
 					</ArrowFrom>
 					<TitleWrap
 						data-aos="fade-up"
-						data-aos-duration = "700"
-						>
+						data-aos-duration="700"
+					>
 						<SectionTitle>{this.state.titleText}</SectionTitle>
 						<Text>{this.state.subTitleText}</Text>
 					</TitleWrap>
-					<Solutions
-						data-aos-anchor-placement="center-bottom">
+					<Solutions>
 						{
-							this.state.solutions.map((item, i)=> {
+							this.state.solutions.map((item, i) => {
 								return (
 									<SolutionItem
 										data-aos="zoom-in-up"
 										data-aos-delay={i * 500}
 										key={item.title}
-										data-aos-duration = "700"
+										data-aos-duration="700"
 										data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 										<div className="title">{item.title}</div>
 										<div className="description">{item.description}</div>
@@ -241,7 +268,7 @@ class SectionNumbers extends React.Component {
 							src={arrowToNext}
 							alt="указатель"
 							data-aos="fade-down"
-							data-aos-delay="700"/>
+							data-aos-delay="700" />
 					</ArrowTo>
 				</Container>
 			</SectionNumbersWrap>

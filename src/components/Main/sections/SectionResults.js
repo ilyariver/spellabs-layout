@@ -6,6 +6,7 @@ import gridBreakpoints from '../../../cssVar';
 import saving from '../../../assets/images/saving.png';
 import result from '../../../assets/images/result.png';
 import arrowToNext from '../../../assets/images/arrow3.svg';
+import arrowDown from '../../../assets/images/arrow2.svg';
 
 // Размеры устройств
 const { sm, md, lg, xl, xxl } = gridBreakpoints;
@@ -13,17 +14,22 @@ const { sm, md, lg, xl, xxl } = gridBreakpoints;
 // Обертка секции
 const SectionResultsMain = styled.section `
   background-color: var(--color-white);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 14rem;
+  padding-bottom: 6rem;
 	
 	
 	.section-container {
 		position: relative;
 	}
 
+	${mediaQueries(md, `
+  		padding-top: 6rem;
+  		padding-bottom: 4rem;
+	`)}
+
   ${mediaQueries(lg, `
-  	padding-top: 50px;	
-  	padding-bottom: 50px;
+  	padding-top: 130px;	
+  	padding-bottom: 130px;
 	`)}
 
   ${mediaQueries(xl, `
@@ -35,13 +41,16 @@ const SectionResultsMain = styled.section `
 // Стрелка указывающая на следующий блок
 const ArrowTo = styled.div`
   position: absolute;
-  right: 430px;
-  bottom: -182px;
+  left: 50%;
+  bottom: -210px;
+  transform: translateX(-50%);
   z-index: 4;
 
-  //img {
-  //  width: 7rem;
-  //}
+  ${mediaQueries(xxl, `
+  		left: auto;
+  		right: 300px;
+  		bottom: -182px;  	
+	`)}
 `;
 
 // Заголовок
@@ -80,23 +89,26 @@ const ContentItem = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3.5rem;
+
+  &::not(:last-child) {
+  	margin-bottom: 3.5rem;
+  }
 
   ${mediaQueries(lg, `
   	flex-direction: row;
 		justify-content: space-between;  	
-  	margin-bottom: 60px;
+  		margin-bottom: 60px;
   	
   	&.reverse {
-				flex-direction: row-reverse;
-			}  	
+			flex-direction: row-reverse;
+		}  	
 	`)}
 
   ${mediaQueries(lg, `
   	margin-bottom: 0;	
 	`)}
 
-  ${mediaQueries(xxl, `
+  ${mediaQueries(xl, `
   	padding-right: 60px;	
 	`)}
 `;
@@ -228,6 +240,7 @@ const Text = styled.div`
 class SectionResults extends React.Component {
 	constructor() {
 		super();
+		this.handleWindowResize = this.handleWindowResize.bind(this);
 		this.state = {
 			title: 'Наилучшие результаты в короткий срок',
 			offer: [
@@ -242,18 +255,38 @@ class SectionResults extends React.Component {
 						'место от профессионалов', link: '#', img: result
 				},
 			],
+			innerWidth: window.innerWidth,
+			innerHeight: window.innerHeight,
 		};
 	}
 
+	// Получаем размер окна при изменение размерова браузера
+	handleWindowResize(e) {
+		const { innerWidth, innerHeight } = window;		
+
+		this.setState({innerWidth, innerHeight});
+	}
+
+	componentDidMount() {
+		window.addEventListener('resize', this.handleWindowResize);
+	}
+
+	componentWillUnmount() {
+		window.removeEventListener('resize', this.handleWindowResize);
+	}
+
 	render() {
+		const { innerWidth, innerHeight } = this.state;
+
 		return (
-			<SectionResultsMain>
+			<SectionResultsMain
+				data-aos-anchor-placement="center-bottom">
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"
 						data-aos-duration="700">{this.state.title}</SectionTitle>
 					<ContentList
-						data-aos-anchor-placement="center-bottom">
+						>
 						{
 							this.state.offer.map((item, i) => {
 								return (
@@ -281,7 +314,7 @@ class SectionResults extends React.Component {
 					</ContentList>
 					<ArrowTo>
 						<img
-							src={arrowToNext}
+							src={innerWidth <= parseInt(xxl) ? arrowDown : arrowToNext}
 							alt="указатель"
 							data-aos="fade-down"
 							data-aos-delay="700"/>

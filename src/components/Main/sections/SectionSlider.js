@@ -16,7 +16,7 @@ const { sm, md, lg, xl } = gridBreakpoints;
 const SectionSliderMain = styled.section `
   background-color: var(--color-gray);
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 10rem;
   overflow: hidden;
 	
 	.section-container {
@@ -73,6 +73,8 @@ const SectionSliderMain = styled.section `
 	`)}
 	
 	${mediaQueries(lg, `
+  		padding-bottom: 120px;
+
 		.swiper-button-prev {
 			&:hover {
 				&::after {
@@ -207,7 +209,8 @@ class SectionSlider extends React.Component {
 		SwiperCore.use([Navigation]);
 
 		return (
-			<SectionSliderMain>
+			<SectionSliderMain
+			data-aos-anchor-placement="center-bottom">
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"
@@ -216,7 +219,6 @@ class SectionSlider extends React.Component {
 						data-aos="zoom-out"
 						data-aos-delay="400"
 						data-aos-duration = "700"
-						data-aos-anchor-placement="center-bottom"
 						spaceBetween={50}
 						slidesPerView={1}
 						navigation={true}
