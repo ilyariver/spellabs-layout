@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../../../globalContainer';
-import {mediaQueries} from '../../../globalContainer';
+import { mediaQueries } from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 import support from '../../../assets/images/support.png';
 
 // Размеры устройств
-const {sm, md, lg, xl} = gridBreakpoints;
+const { sm, md, lg, xl } = gridBreakpoints;
 
 // Обертка секци
-const SectionNeedWrap = styled.section`
+const SectionNeedWrap = styled.section `
   background-color: var(--color-gray);
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -246,16 +246,26 @@ class SectionNeed extends React.Component {
 		return (
 			<SectionNeedWrap>
 				<Container className="section-container">
-					<SectionTitle>{title}</SectionTitle>
+					<SectionTitle
+						data-aos="fade-up"
+						data-aos-duration = "700">{title}</SectionTitle>
 					<Content>
-						<ImageWrap>
+						<ImageWrap
+							data-aos="fade-right"
+							data-aos-duration = "700">
 							<img src={support} alt={title}/>
 						</ImageWrap>
-						<ContentList>
+						<ContentList
+							data-aos-anchor-placement="center-bottom">
 							{
 								dignityList.map((item, i) => {
 									return (
-										<Item key={item.title}>
+										<Item 
+											key={item.title}
+											data-aos="fade-left" 
+											data-aos-delay={i * 400} 
+											data-aos-duration = "1000"
+											data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 											<TitleWrap>
 												<SerialNumber>{i + 1}</SerialNumber>
 												<Title>{item.title}</Title>

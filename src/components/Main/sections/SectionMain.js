@@ -4,6 +4,8 @@ import Container from '../../../globalContainer';
 import OptionsButton from '../OptionsButton';
 import gridBreakpoints from '../../../cssVar';
 import backImg from '../../../assets/images/header-img.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const SectionMainWrap = styled.section`
   position: relative;
@@ -143,19 +145,35 @@ const SectionImage = styled.div`
 
 class SectionMain extends React.Component {
 
+  componentDidMount() {
+    AOS.init({
+      duration: 1000,
+      mirror: true
+    })
+  }
+
 	render() {
+    
+
 		return (
 			<SectionMainWrap>
 				<Container className="section-container">
-					<SectionTitle>
+					<SectionTitle 
+            data-aos="fade-left"
+            data-aos-duration="700">
 						Трансформируйте
 						свой портал
 						в&nbsp;<span>цифровое рабочее место</span>
 					</SectionTitle>
-					<SectionImage>
+					<SectionImage
+             data-aos="zoom-out"
+             data-aos-duration="1000"
+             data-aos-delay="1000">
 						<img src={backImg} alt="Изображение"/>
 					</SectionImage>
-					<OptionsButton buttonTitle={'Начать трансформацию'}/>
+					<OptionsButton 
+            buttonTitle={'Начать трансформацию'}
+            />
 				</Container>
 			</SectionMainWrap>
 		);

@@ -21,6 +21,7 @@ html {
     /*colors*/
     --color-black: #050505;
     --color-slide-button: #707070;
+    --color-menu-hover: #4db8ff47;
     --color-gray: #F7F7F7;
     --color-gray-font: #908C8C;
     --color-blue: #1B3DCB;
@@ -59,8 +60,8 @@ ul {
 
 .visually-hidden {
     position: absolute !important;
-    clip: rect(1px 1px 1px 1px );
-    clip: rect(1px, 1px, 1px, 1px );
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
     padding: 0 !important;
     height: 1px !important;
     width: 1px !important;

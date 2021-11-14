@@ -13,8 +13,8 @@ const { sm, md, lg, xl } = gridBreakpoints;
 // Обертка секции
 const SectionCmsWrap = styled.section `
   background-color: var(--color-white);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: 7rem;
+  padding-bottom: 9rem;
 
   ${mediaQueries(lg, `
   	padding-top: 50px;	
@@ -136,15 +136,24 @@ class SectionCms extends React.Component {
 		return (
 			<SectionCmsWrap>
 				<Container className="section-container">
-					<SectionTitle>
+					<SectionTitle
+						data-aos="fade-up"
+						data-aos-duration = "700"
+						data-aos-delay="300">
 						<div className="topText">{this.state.title.topText}</div>
 						<div className="bottomText">{this.state.title.bottomText}</div>
 					</SectionTitle>
-					<LogoList>
+					<LogoList						
+						data-aos-anchor-placement="center-bottom">
 						{
-							this.state.logo.map(item => {
+							this.state.logo.map((item, i) => {
 								return (
-									<LogoItem key={item.alt}>
+									<LogoItem 
+										key={item.alt}
+										data-aos="zoom-out" 
+										data-aos-delay={i * 300}
+										data-aos-duration = "700"
+										data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 										<img src={item.image} alt={item.alt}/>
 									</LogoItem>
 								)

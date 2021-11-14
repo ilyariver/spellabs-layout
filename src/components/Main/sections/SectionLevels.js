@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../../../globalContainer';
-import {mediaQueries} from '../../../globalContainer';
+import { mediaQueries } from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 
 // Размеры устройств
-const {sm, md, lg, xl} = gridBreakpoints;
+const { sm, md, lg, xl } = gridBreakpoints;
 
 // Обертка секции
-const SectionLevelsWrap = styled.section`
+const SectionLevelsWrap = styled.section `
   position: relative;
   background-color: var(--color-blue);
   padding-top: 5rem;
@@ -166,7 +166,7 @@ const LevelItem = styled.li`
     height: 35px;
     background-color: var(--color-blue-light);
     border: 5px solid var(--color-white);
-		transition: border 0.1s ease-in-out;
+		transition: border 0.2s ease-in-out;
   }
 
   ${mediaQueries(sm, `
@@ -182,13 +182,13 @@ const LevelItem = styled.li`
 
   ${mediaQueries(md, `
 		width: calc(100% / 2 - 0.4rem);
-    height: 15rem;
-    padding: 1.2rem;
-    border-radius: 0.3rem;
-    border: 5px solid var(--color-blue-light);
-    transition: border 0.1s ease-in-out;
+		height: 15rem;
+		padding: 1.2rem;
+		border-radius: 0.3rem;
+		border: 5px solid var(--color-blue-light);
+		transition: border 0.2s ease-in-out;
 		
-    &:not(:last-child) {
+    	&:not(:last-child) {
 			margin-bottom: 0.8rem;
 		}
 		
@@ -197,7 +197,7 @@ const LevelItem = styled.li`
 			margin-bottom: 0.8rem;
 		}
 		    
-    .figure {
+    	.figure {
 			margin-bottom: 0.9rem;
 		}
 		
@@ -350,16 +350,24 @@ class SectionLevels extends React.Component {
 		return (
 			<SectionLevelsWrap>
 				<Container className="section-container">
-					<SectionTitle>
+					<SectionTitle
+						data-aos="fade-up"
+						data-aos-duration = "700">
 						Для каждого уровня
 						<span> цифровое пространство </span>
 						имеет свой вид
 					</SectionTitle>
-					<LevelList>
+					<LevelList
+						data-aos-anchor-placement="center-bottom">
 						{
-							this.state.levels.map(item => {
+							this.state.levels.map((item, i)=> {
 								return (
-									<LevelItem key={item.title}>
+									<LevelItem 
+										key={item.title}
+										data-aos="zoom-out" 
+										data-aos-delay={i * 300} 
+										data-aos-duration = "700"
+										data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 										<div className={'figure ' + item.figure}></div>
 										<Title>{item.title}</Title>
 										<Text>{item.text}</Text>

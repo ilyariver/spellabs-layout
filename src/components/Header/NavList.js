@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { darken, lighten } from 'polished';
 import gridBreakpoints from '../../cssVar';
 import closeIcon from '../../assets/images/icons/close.svg';
 import burgerIcon from '../../assets/images/icons/burger.svg';
@@ -62,7 +63,7 @@ const Nav = styled.div`
 	z-index: 6;
 
   &.active {
-		transform: translateX(0);
+	transform: translateX(0);
   }
 
   @media (min-width: ${gridBreakpoints.sm}) {
@@ -112,13 +113,35 @@ const NavItem = styled.li`
   @media (min-width: ${gridBreakpoints.lg}) {
 		margin: 0 20px;
 		
+		a {
+			position: relative;
+			line-height: 40px;	
+			z-index: 5;
+
+			&:after {
+				content: "";    
+				background-color: var(--color-menu-hover);
+				position: absolute;
+				width: 0;
+				transition: width 0.2s ease-in-out;				
+			}
+
+			&:hover {
+				&::after {
+					bottom: -5px;
+					left: 0;
+					width: 100%;
+					height: 15px;
+				}
+			}
+		}
 		&:first-child {
 			margin-left: 0;
 		}
 
-    &:last-child {
-      margin-right: 0;
-    }
+		&:last-child {
+			margin-right: 0;
+		}
 	}
 
   @media (min-width: ${gridBreakpoints.xl}) {
@@ -138,6 +161,15 @@ const NavItem = styled.li`
 const Contacts = styled.div`
 	color: var(--color-yellow-font);
 	text-transform: uppercase;
+	@media (min-width: ${gridBreakpoints.lg}) {
+		transition: color 0.2s ease-in;
+		&:hover {
+			color: ${lighten(0.2, '#FAAF22')};;
+		}
+		a {
+			line-height: 40px;
+		}
+	}
 `
 
 // Кнопка открытия меню

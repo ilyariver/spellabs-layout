@@ -1,16 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../../../globalContainer';
-import {mediaQueries} from '../../../globalContainer';
+import { mediaQueries } from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 import saving from '../../../assets/images/saving.png';
 import result from '../../../assets/images/result.png';
 
 // Размеры устройств
-const {sm, md, lg, xl, xxl} = gridBreakpoints;
+const { sm, md, lg, xl, xxl } = gridBreakpoints;
 
 // Обертка секции
-const SectionResultsMain = styled.section`
+const SectionResultsMain = styled.section `
   background-color: var(--color-white);
   padding-top: 4rem;
   padding-bottom: 4rem;
@@ -231,16 +231,27 @@ class SectionResults extends React.Component {
 		return (
 			<SectionResultsMain>
 				<Container className="section-container">
-					<SectionTitle>{this.state.title}</SectionTitle>
-					<ContentList>
+					<SectionTitle
+						data-aos="fade-up"
+						data-aos-duration = "700">{this.state.title}</SectionTitle>
+					<ContentList						
+						data-aos-anchor-placement="center-bottom">
 						{
 							this.state.offer.map((item, i) => {
 								return (
-									<ContentItem key={item.title} className={i % 2 !== 0 && 'reverse'}>
-										<ImageWrap>
+									<ContentItem key={item.title} className={i % 2 !== 0 && "reverse"}>
+										<ImageWrap
+											data-aos={i % 2 !== 0 ? "fade-left" : "fade-right"}
+											data-aos-duration = "700"
+											data-aos-delay={i * 200}
+											data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 											<img src={item.img} alt={item.title}/>
 										</ImageWrap>
-										<TextWrap>
+										<TextWrap
+											data-aos={i % 2 !== 0 ? "fade-right" : "fade-left"}
+											data-aos-duration = "700"
+											data-aos-delay={i * 300}
+											data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 											<Title>{item.title}</Title>
 											<Text>{item.text}</Text>
 											<a href={item.link}>Подробнее</a>

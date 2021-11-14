@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import mainLogo from '../../assets/images/logo.svg';
 import NavListMenu from './NavList';
 
-
 // Хедер
 const PageHeader = styled.header`
   position: fixed;
@@ -15,6 +14,7 @@ const PageHeader = styled.header`
 	width: 100%;
   height: 80px;
 	background-color: var(--color-white);
+  box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
 	z-index: 6;
 
   .header-container {
@@ -48,6 +48,10 @@ const HeaderLogo = styled.div`
   @media (min-width: ${gridBreakpoints.md}) {
     height: 1rem;
     width: 5rem;
+    transition: transform 0.1s ease-in-out;
+    &:hover {
+      transform: rotate(-3deg);
+    }
   }
 
   @media (min-width: ${gridBreakpoints.xl}) {

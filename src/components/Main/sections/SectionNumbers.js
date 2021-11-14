@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../../../globalContainer';
-import {mediaQueries} from '../../../globalContainer';
+import { mediaQueries } from '../../../globalContainer';
 import grid from '../../../assets/images/grid.svg';
 import gridBreakpoints from '../../../cssVar';
 
 // Размеры устройств
-const {sm, md, lg, xl} = gridBreakpoints;
+const { sm, md, lg, xl } = gridBreakpoints;
 
 // Обертка секции
-const SectionNumbersWrap = styled.section`
+const SectionNumbersWrap = styled.section `
   position: relative;
   background-color: var(--color-gray);
   padding-top: 10rem;
@@ -193,15 +193,24 @@ class SectionNumbers extends React.Component {
 				{/*	<img src={arrowDown} alt="указатель"/>*/}
 				{/*</ArrowFrom>*/}
 				<Container className="section-container">
-					<TitleWrap>
+					<TitleWrap 
+						data-aos="fade-up"
+						data-aos-duration = "700"
+						>
 						<SectionTitle>{this.state.titleText}</SectionTitle>
 						<Text>{this.state.subTitleText}</Text>
 					</TitleWrap>
-					<Solutions>
+					<Solutions
+						data-aos-anchor-placement="center-bottom">
 						{
-							this.state.solutions.map(item => {
+							this.state.solutions.map((item, i)=> {
 								return (
-									<SolutionItem key={item.title}>
+									<SolutionItem 
+										data-aos="zoom-in-up" 
+										data-aos-delay={i * 500} 
+										key={item.title}
+										data-aos-duration = "700"
+										data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 										<div className="title">{item.title}</div>
 										<div className="description">{item.description}</div>
 									</SolutionItem>

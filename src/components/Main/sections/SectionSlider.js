@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Swiper, SwiperSlide} from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 import Container from '../../../globalContainer';
-import {mediaQueries} from '../../../globalContainer';
+import { mediaQueries } from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 import arrowRight from '../../../assets/images/icons/arrow-elipse.svg'
 
 // Размеры устройств
-const {sm, md, lg, xl, xxl} = gridBreakpoints;
+const { sm, md, lg, xl, xxl } = gridBreakpoints;
 
 // Обертка секции
-const SectionSliderMain = styled.section`
+const SectionSliderMain = styled.section `
   background-color: var(--color-gray);
   padding-top: 4rem;
   padding-bottom: 4rem;
+  overflow: hidden;
 	
 	// swiper
   .swiper-container {
@@ -25,8 +26,7 @@ const SectionSliderMain = styled.section`
 	
 	.swiper-button-next, .swiper-button-prev {
 		&::after {
-      display: none;
-			
+      		display: none;			
 		}    
 	}  
 
@@ -70,13 +70,25 @@ const SectionSliderMain = styled.section`
 	
 	${mediaQueries(lg, `
 		.swiper-button-prev {
-			&::after {
-				left: -30px;
+			&:hover {
+				&::after {
+					transform: rotate(180deg) scale(1.1);			
+				}
 			}
+			&::after {
+				transition: transform 0.2s ease-in;
+				left: -30px;				
+			}			
 		}
 		
-  	.swiper-button-next {
+  		.swiper-button-next {
+			&:hover {
+				&::after {
+					transform: scale(1.1);
+				}
+			}
 			&::after {
+				transition: transform 0.2s ease-in;
 				right: -30px;
 			}
 		}
@@ -191,8 +203,14 @@ class SectionSlider extends React.Component {
 		return (
 			<SectionSliderMain>
 				<Container className="section-container">
-					<SectionTitle>{this.state.title}</SectionTitle>
+					<SectionTitle
+						data-aos="fade-up"
+						data-aos-duration = "700">{this.state.title}</SectionTitle>
 					<Swiper
+						data-aos="zoom-out" 
+						data-aos-delay="400" 
+						data-aos-duration = "700"
+						data-aos-anchor-placement="center-bottom"
 						spaceBetween={50}
 						slidesPerView={1}
 						navigation={true}
@@ -207,7 +225,9 @@ class SectionSlider extends React.Component {
 						{
 							this.state.preview.map((item, i) => {
 								return (
-									<SwiperSlide key={i}>
+									<SwiperSlide 
+										key={i}
+										>
 										<SlideItem></SlideItem>
 									</SwiperSlide>
 								);
