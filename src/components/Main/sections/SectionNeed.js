@@ -1,23 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../../../globalContainer';
-import { mediaQueries } from '../../../globalContainer';
+import {mediaQueries} from '../../../globalContainer';
 import gridBreakpoints from '../../../cssVar';
 import support from '../../../assets/images/support.png';
-import arrowToNext from '../../../assets/images/arrow3.svg';
-import arrowDown from '../../../assets/images/arrow2.svg';
 
 // Размеры устройств
-const { sm, md, lg, xl, xxl } = gridBreakpoints;
+const {sm, md, lg, xl} = gridBreakpoints;
 
 // Обертка секци
-const SectionNeedWrap = styled.section `
+const SectionNeedWrap = styled.section`
   background-color: var(--color-gray);
   padding-top: 10rem;
   padding-bottom: 7rem;
+  overflow: hidden;
 
   .section-container {
-		position: relative;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,21 +41,6 @@ const SectionNeedWrap = styled.section `
   ${mediaQueries(xl, `
   	padding-top: 70px;
   	padding-bottom: 137px;	
-	`)}
-`;
-
-// Стрелка указывающая на следующий блок
-const ArrowTo = styled.div`
-  position: absolute;
-  left: 50%;
-  bottom: -180px;
-  transform: translateX(-50%);
-  z-index: 4;
-
-  ${mediaQueries(xxl, `
-	left: auto;
-  	right: 304px;
-  	bottom: -200px;  	
 	`)}
 `;
 
@@ -133,16 +117,16 @@ const ContentList = styled.ul`
 `;
 
 const Item = styled.li`
-  &::not(::last-child) {
-	  margin-bottom: 3rem;
-	}
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
 
   ${mediaQueries(lg, `
   	margin-bottom: 0;
 	`)}
 
   ${mediaQueries(xl, `
-  &::not(::last-child) {
+  &:not(:last-child) {
   	margin-bottom: 10px;
 	}
 	`)}
@@ -213,7 +197,7 @@ const Title = styled.h5`
 
 // Текст пункиа
 const Text = styled.p`
-  width: 22rem;
+  width: 20rem;
   color: var(--color-gray-font);
   font-size: 1.2rem;
   line-height: 2.3rem;
@@ -247,7 +231,6 @@ const Text = styled.p`
 class SectionNeed extends React.Component {
 	constructor() {
 		super();
-		this.handleWindowResize = this.handleWindowResize.bind(this);
 		this.state = {
 			title: 'Это то, что вам нужно',
 			dignityList: [
@@ -265,45 +248,28 @@ class SectionNeed extends React.Component {
 						'блоки и дополняйте портал'
 				},
 			],
-			innerWidth: window.innerWidth,
-			innerHeight: window.innerHeight,
 		};
 	}
 
-	// Получаем размер окна при изменение размерова браузера
-	
-	handleWindowResize(e) {
-		const { innerWidth, innerHeight } = window;		
-
-		this.setState({innerWidth, innerHeight});
-	}
-
-	componentDidMount() {
-		window.addEventListener('resize', this.handleWindowResize);
-	}
-
-	componentWillUnmount() {
-		window.removeEventListener('resize', this.handleWindowResize);
-	}
-
 	render() {
-		const {title, dignityList, innerWidth, innerHeight } = this.state;
+		const {title, dignityList} = this.state;
 
 		return (
 			<SectionNeedWrap
-				data-aos-anchor-placement="bottom-top">
+				id="need">
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"
-						data-aos-duration = "700">{title}</SectionTitle>
+						data-aos-duration="700">{title}</SectionTitle>
 					<Content>
-						<ImageWrap
-							data-aos="fade-right"
-							data-aos-duration = "700">
-							<img src={support} alt={title}/>
+						<ImageWrap>
+							<img
+								data-aos="fade-right"
+								data-aos-duration="700"
+								src={support} alt={title}/>
 						</ImageWrap>
 						<ContentList
-							>
+						>
 							{
 								dignityList.map((item, i) => {
 									return (
@@ -311,7 +277,7 @@ class SectionNeed extends React.Component {
 											key={item.title}
 											data-aos="fade-left"
 											data-aos-delay={i * 400}
-											data-aos-duration = "1000"
+											data-aos-duration="1000"
 											data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 											<TitleWrap>
 												<SerialNumber>{i + 1}</SerialNumber>
@@ -324,13 +290,7 @@ class SectionNeed extends React.Component {
 							}
 						</ContentList>
 					</Content>
-					<ArrowTo>
-						<img
-							src={innerWidth <= parseInt(xxl) ? arrowDown : arrowToNext}
-							alt="указатель"
-							data-aos="fade-down"
-							data-aos-delay="700"/>
-					</ArrowTo>
+
 				</Container>
 			</SectionNeedWrap>
 		);

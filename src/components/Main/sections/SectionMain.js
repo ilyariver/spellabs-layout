@@ -144,10 +144,9 @@ const SectionImage = styled.div`
 class SectionMain extends React.Component {
 
 	render() {
-
-
 		return (
-			<SectionMainWrap>
+			<SectionMainWrap
+				id="start">
 				<Container className="section-container">
 					<SectionTitle
             data-aos="fade-left"
@@ -156,11 +155,12 @@ class SectionMain extends React.Component {
 						свой портал
 						в&nbsp;<span>цифровое рабочее место</span>
 					</SectionTitle>
-					<SectionImage
-             data-aos="zoom-out"
-             data-aos-duration="1000"
-             data-aos-delay="1000">
-						<img src={backImg} alt="Изображение"/>
+					<SectionImage>
+						<img
+							data-aos="zoom-out"
+							data-aos-duration="1000"
+							data-aos-delay="1000"
+							src={backImg} alt="Изображение"/>
 					</SectionImage>
 					<OptionsButton
             buttonTitle={'Начать трансформацию'}

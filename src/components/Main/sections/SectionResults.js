@@ -42,10 +42,27 @@ const SectionResultsMain = styled.section `
 const ArrowTo = styled.div`
   position: absolute;
   left: 50%;
-  bottom: -210px;
+  bottom: -12rem;
+	width: 1.5rem;
   transform: translateX(-50%);
   z-index: 4;
+	
+  ${mediaQueries(sm, `
+  		 bottom: -8rem;	
+	`)}
 
+  ${mediaQueries(md, `
+  		 bottom: -6rem;	
+	`)}
+
+  ${mediaQueries(md, `
+  		 bottom: -200px;	
+	`)}
+
+  ${mediaQueries(xl, `
+  		 width: auto;	
+	`)}
+	
   ${mediaQueries(xxl, `
   		left: auto;
   		right: 300px;
@@ -90,14 +107,18 @@ const ContentItem = styled.li`
   flex-direction: column;
   align-items: center;
 
-  &::not(:last-child) {
+  &:not(:last-child) {
   	margin-bottom: 3.5rem;
   }
 
   ${mediaQueries(lg, `
   	flex-direction: row;
-		justify-content: space-between;  	
-  		margin-bottom: 60px;
+		justify-content: space-between; 
+		
+		&:not(:last-child) {
+			margin-bottom: 60px;
+		} 	
+  		
   	
   	&.reverse {
 			flex-direction: row-reverse;
@@ -105,7 +126,10 @@ const ContentItem = styled.li`
 	`)}
 
   ${mediaQueries(lg, `
-  	margin-bottom: 0;	
+		&:not(:last-child) {
+			margin-bottom: 0;	
+		} 
+  	
 	`)}
 
   ${mediaQueries(xl, `
@@ -262,7 +286,7 @@ class SectionResults extends React.Component {
 
 	// Получаем размер окна при изменение размерова браузера
 	handleWindowResize(e) {
-		const { innerWidth, innerHeight } = window;		
+		const { innerWidth, innerHeight } = window;
 
 		this.setState({innerWidth, innerHeight});
 	}
@@ -279,8 +303,7 @@ class SectionResults extends React.Component {
 		const { innerWidth, innerHeight } = this.state;
 
 		return (
-			<SectionResultsMain
-				data-aos-anchor-placement="center-bottom">
+			<SectionResultsMain>
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"
@@ -294,15 +317,13 @@ class SectionResults extends React.Component {
 										<ImageWrap
 											data-aos={i % 2 !== 0 ? "fade-left" : "fade-right"}
 											data-aos-duration = "700"
-											data-aos-delay={i * 200}
-											data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
+											data-aos-delay={i * 300}>
 											<img src={item.img} alt={item.title}/>
 										</ImageWrap>
 										<TextWrap
 											data-aos={i % 2 !== 0 ? "fade-right" : "fade-left"}
 											data-aos-duration = "700"
-											data-aos-delay={i * 300}
-											data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
+											data-aos-delay={i * 400}>
 											<Title>{item.title}</Title>
 											<Text>{item.text}</Text>
 											<a href={item.link}>Подробнее</a>

@@ -136,7 +136,7 @@ const LevelItem = styled.li`
     border-style: solid;
     border-width: 0 0 39px 39px;
     border-color: transparent transparent var(--color-white) transparent;
-		transition: border 0.1s ease-in-out;
+		transition: border 0.3s ease-in-out;
 
     &:after {
       content: "";
@@ -158,7 +158,7 @@ const LevelItem = styled.li`
     background-color: var(--color-blue-light);
     border-radius: 50%;
     border: 5px solid var(--color-white);
-		transition: border 0.1s ease-in-out;
+		transition: border 0.3s ease-in-out;
   }
 
   .square {
@@ -166,7 +166,7 @@ const LevelItem = styled.li`
     height: 35px;
     background-color: var(--color-blue-light);
     border: 5px solid var(--color-white);
-		transition: border 0.2s ease-in-out;
+		transition: border 0.3s ease-in-out;
   }
 
   ${mediaQueries(sm, `
@@ -186,7 +186,7 @@ const LevelItem = styled.li`
 		padding: 1.2rem;
 		border-radius: 0.3rem;
 		border: 5px solid var(--color-blue-light);
-		transition: border 0.2s ease-in-out;
+		transition: border 0.5s ease-in-out;
 		
     	&:not(:last-child) {
 			margin-bottom: 0.8rem;
@@ -198,13 +198,14 @@ const LevelItem = styled.li`
 		}
 		    
     	.figure {
-			margin-bottom: 0.9rem;
-		}
+				margin-bottom: 0.9rem;
+			}
 		
 		&:hover {
 			border: 5px solid var(--color-yellow-font);
 			.circle, .square {
 				border: 5px solid var(--color-yellow-font);
+
 			}
 			.triangle {
 				border-color: transparent transparent var(--color-yellow-font) transparent;
@@ -348,11 +349,12 @@ class SectionLevels extends React.Component {
 	render() {
 
 		return (
-			<SectionLevelsWrap>
+			<SectionLevelsWrap
+				id="levels">
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"
-						data-aos-duration = "700">
+						data-aos-duration="700">
 						Для каждого уровня
 						<span> цифровое пространство </span>
 						имеет свой вид
@@ -366,7 +368,7 @@ class SectionLevels extends React.Component {
 										key={item.title}
 										data-aos="zoom-out"
 										data-aos-delay={i * 300}
-										data-aos-duration = "700"
+										data-aos-duration="700"
 										data-aos-easing="cubic-bezier(.175,.885,.32,1.275)">
 										<div className={'figure ' + item.figure}></div>
 										<Title>{item.title}</Title>

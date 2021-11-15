@@ -3,34 +3,35 @@ import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 import gridBreakpoints from '../../cssVar';
 import { mediaQueries } from '../../globalContainer';
-
+import { Link, animateScroll as scroll } from 'react-scroll';
 // Размеры устройств
 const { sm, md, lg, xl } = gridBreakpoints;
 
-const Button = styled.a`
-  display: flex;
-	justify-content: center;
-	align-items: center;
-  width: 20rem;
-	position: relative;
-	background-color: var(--color-blue-font);
-  padding: 0 3.5rem;
-	border: none;
-  border-radius: 50px;
-  line-height: 4.5rem;
-  color: var(--color-white);
-	font-size: 1rem;
-  white-space: nowrap;
-	z-index: 5;
+const ButtonWrap = styled.div`
+ .button {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 20rem;
+   position: relative;
+   background-color: var(--color-blue-font);
+   padding: 0 3.5rem;
+   border: none;
+   border-radius: 50px;
+   line-height: 4.5rem;
+   color: var(--color-white);
+   font-size: 1rem;
+   white-space: nowrap;
+   z-index: 5;
 
-	${mediaQueries(sm, `
+   ${mediaQueries(sm, `
 		width: 15rem;
 		padding: 0 2rem;
 		line-height: 3.6rem;
 		font-size: 0.9rem;
 	`)}
 
-	${mediaQueries(md, `
+   ${mediaQueries(md, `
 		width: 10.9rem;
 		padding: 0 0.4rem;
 		line-height: 2.5rem;
@@ -43,20 +44,21 @@ const Button = styled.a`
 		}
 	`)}
 
-	${mediaQueries(lg, `
+   ${mediaQueries(lg, `
 		width: 340px;
 		padding: 0 20px;
 		line-height: 75px;
 		font-size: 22px;
 		cursor: pointer;
 	`)}
-	
-	${mediaQueries(xl, `
+
+   ${mediaQueries(xl, `
 		width: 320px;
 		padding: 0 20px;
     	line-height: 65px;
 		font-size: 20px;`
-)}		
+   )}
+ }
 `
 
 class OptionsButton extends React.Component {
@@ -64,13 +66,21 @@ class OptionsButton extends React.Component {
 	render() {
 
 		return (
-			<Button
-				data-aos="zoom-out"
-				data-aos-duration="700"
-				data-aos-delay="500">
-				<span>{this.props.buttonTitle || "Кнопка"}</span>
-			</Button>
-
+			<ButtonWrap>
+				<Link
+					className="button"
+					data-aos="zoom-out"
+					data-aos-duration="700"
+					data-aos-delay="500"
+					activeClass="active"
+					spy={true}
+					smooth={true}
+					duration={1000}
+					offset={-70}
+					to="section-numbers">
+					<span>{this.props.buttonTitle || "Кнопка"}</span>
+				</Link>
+			</ButtonWrap>
 		)
 	}
 }

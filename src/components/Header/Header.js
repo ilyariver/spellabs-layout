@@ -4,6 +4,7 @@ import gridBreakpoints from '../../cssVar';
 import styled from 'styled-components';
 import mainLogo from '../../assets/images/logo.svg';
 import NavListMenu from './NavList';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 // Хедер
 const PageHeader = styled.header`
@@ -39,6 +40,7 @@ const PageHeader = styled.header`
 const HeaderLogo = styled.div`
   height: 2rem;
   width: 8rem;
+	cursor: pointer;
 
   @media (min-width: ${gridBreakpoints.sm}) {
     height: 1.8rem;
@@ -74,9 +76,15 @@ class Header extends React.Component {
 				<Container className="header-container">
 					<HeaderLogo
             aria-label="Логотип компании">
-						<a href="/">
+						<Link
+							activeClass="active"
+							spy={true}
+							smooth={true}
+							duration={1000}
+							offset={-70}
+							to="start">
 							<img src={mainLogo} alt="Spellabs"/>
-						</a>
+						</Link>
 					</HeaderLogo>
 					<NavListMenu />
 				</Container>

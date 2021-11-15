@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Container from '../../../globalContainer';
-import { mediaQueries } from '../../../globalContainer';
+import {mediaQueries} from '../../../globalContainer';
 import grid from '../../../assets/images/grid.svg';
 import arrowDown from '../../../assets/images/arrow1.svg';
 import arrowToNext from '../../../assets/images/arrow2.svg';
 import gridBreakpoints from '../../../cssVar';
 
 // Размеры устройств
-const { sm, md, lg, xl, xxl } = gridBreakpoints;
+const {sm, md, lg, xl, xxl} = gridBreakpoints;
 
 // Обертка секции
 const SectionNumbersWrap = styled.section`
@@ -56,32 +56,56 @@ const SectionNumbersWrap = styled.section`
 // Стрелка от кнопки указывающая на следующий блок
 const ArrowFrom = styled.div`
   position: absolute;
-  top: -210px;
+  top: -16rem;
   left: 50%;
+  width: 1.5rem;
   transform: translateX(-50%);
   z-index: 4;
 
-  //img {
-  //  width: 7rem;
-  //}
+  ${mediaQueries(sm, `
+		top: -14rem;
+	`)}
+
+  ${mediaQueries(md, `
+		top: -6.5rem;
+	`)}
+
+  ${mediaQueries(lg, `
+		top: -5rem;
+	`)}
+
+  ${mediaQueries(xl, `
+    width: auto;
+		top: -250px;
+	`)}
 
   ${mediaQueries(xxl, `
 		top: -402px;
-  		left: 450px;
+		left: 450px;
 	`)}
 `;
 
 // Стрелка указывающая на следующий блок
 const ArrowTo = styled.div`
-	position: absolute;
-	left: 50%;
-  	bottom: -232px;
-	transform: translateX(-50%)!important;
-  	z-index: 4;
+  position: absolute;
+  left: 50%;
+  bottom: -15rem;
+  width: 1.5rem;
+  transform: translateX(-50%) !important;
+  z-index: 4;
 
-  //img {
-  //  width: 7rem;
-  //}
+  ${mediaQueries(md, `
+		bottom: -7rem;
+	`)}
+
+  ${mediaQueries(lg, `
+		bottom: -6rem;
+	`)}
+
+  ${mediaQueries(xl, `
+    width: auto;
+		bottom: -230px;
+	`)}
 `;
 
 // Обертка заголовка текста
@@ -195,23 +219,23 @@ const SolutionItem = styled.li`
 class SectionNumbers extends React.Component {
 	constructor() {
 		super();
-		this.handleWindowResize = this.handleWindowResize.bind(this)
+		this.handleWindowResize = this.handleWindowResize.bind(this);
 		this.state = {
 			titleText: 'Используйте готовое решение от профессионалов',
 			subTitleText: 'Это сэкономит кучу времени и даст кучу всего',
 			solutions: [
-				{ title: '+20', description: 'Готовые модули' },
-				{ title: '10', description: 'Используйте готовое' },
-				{ title: '+5K', description: 'Используйте готовое' },
+				{title: '+20', description: 'Готовые модули'},
+				{title: '10', description: 'Используйте готовое'},
+				{title: '+5K', description: 'Используйте готовое'},
 			],
 			innerWidth: window.innerWidth,
 			innerHeight: window.innerHeight,
 		};
 	}
-	
+
 	// Получаем размер окна при изменение размерова браузера
 	handleWindowResize(e) {
-		const { innerWidth, innerHeight } = window;		
+		const {innerWidth, innerHeight} = window;
 
 		this.setState({innerWidth, innerHeight});
 	}
@@ -225,19 +249,18 @@ class SectionNumbers extends React.Component {
 	}
 
 	render() {
-		const { innerWidth } = this.state;
-		
+		const {innerWidth} = this.state;
+
 		return (
 			<SectionNumbersWrap
-				data-aos-anchor-placement="center-bottom">
-
+				id="section-numbers">
 				<Container className="section-container">
 					<ArrowFrom>
-						<img 
-						data-aos="zoom-out"
-						data-aos-delay="1200"
-						src={innerWidth <= parseInt(xxl) ? arrowToNext : arrowDown} 
-						alt="указатель" />
+						<img
+							data-aos="zoom-out"
+							data-aos-delay="1200"
+							src={innerWidth <= parseInt(xxl) ? arrowToNext : arrowDown}
+							alt="указатель"/>
 					</ArrowFrom>
 					<TitleWrap
 						data-aos="fade-up"
@@ -268,7 +291,7 @@ class SectionNumbers extends React.Component {
 							src={arrowToNext}
 							alt="указатель"
 							data-aos="fade-down"
-							data-aos-delay="700" />
+							data-aos-delay="700"/>
 					</ArrowTo>
 				</Container>
 			</SectionNumbersWrap>

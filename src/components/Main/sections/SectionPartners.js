@@ -151,9 +151,13 @@ const ArrowTo = styled.div`
   transform: translateX(-50%) !important;
   z-index: 4;
 
-  //img {
-  //  width: 7rem;
-  //}
+  ${mediaQueries(md, `
+   	top: -40px;
+	`)}
+	
+  ${mediaQueries(lg, `
+   	top: -80px;
+	`)}
 `;
 
 // Заголовок
@@ -233,7 +237,7 @@ class SectionPartners extends React.Component {
 
 		return (
 			<SectionPartnersMain
-				data-aos-anchor-placement="center-bottom">
+				id="partners">
 				<ArrowTo>
 					<img
 						src={arrowToNext}
@@ -242,12 +246,10 @@ class SectionPartners extends React.Component {
 						data-aos-delay="700"/>
 				</ArrowTo>
 				<Container className="section-container">
-
 					<SectionTitle
 						data-aos="fade-up"
 						data-aos-duration="200">{this.state.title}</SectionTitle>
 					<Swiper
-
 						data-aos="zoom-out"
 						data-aos-duration="700"
 						data-aos-delay="600"

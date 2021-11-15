@@ -210,7 +210,7 @@ class SectionSlider extends React.Component {
 
 		return (
 			<SectionSliderMain
-			data-aos-anchor-placement="center-bottom">
+				id="slider">
 				<Container className="section-container">
 					<SectionTitle
 						data-aos="fade-up"

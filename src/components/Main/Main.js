@@ -17,7 +17,7 @@ const PageMain = styled.main`
 
 class Main extends React.Component {
 	componentDidMount() {
-	  AOS.init({})
+	  AOS.init()
 	}
 
 	render() {
