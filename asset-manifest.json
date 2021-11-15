@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/spellabs-layout/static/css/main.66dbdaf8.chunk.css",
-    "main.js": "/spellabs-layout/static/js/main.12a97594.chunk.js",
-    "main.js.map": "/spellabs-layout/static/js/main.12a97594.chunk.js.map",
-    "runtime-main.js": "/spellabs-layout/static/js/runtime-main.72109da7.js",
-    "runtime-main.js.map": "/spellabs-layout/static/js/runtime-main.72109da7.js.map",
+    "main.js": "/spellabs-layout/static/js/main.1d5ed4cd.chunk.js",
+    "main.js.map": "/spellabs-layout/static/js/main.1d5ed4cd.chunk.js.map",
+    "runtime-main.js": "/spellabs-layout/static/js/runtime-main.a917bf51.js",
+    "runtime-main.js.map": "/spellabs-layout/static/js/runtime-main.a917bf51.js.map",
     "static/css/2.717a1bb3.chunk.css": "/spellabs-layout/static/css/2.717a1bb3.chunk.css",
-    "static/js/2.908f73b9.chunk.js": "/spellabs-layout/static/js/2.908f73b9.chunk.js",
-    "static/js/2.908f73b9.chunk.js.map": "/spellabs-layout/static/js/2.908f73b9.chunk.js.map",
-    "static/js/3.428ab689.chunk.js": "/spellabs-layout/static/js/3.428ab689.chunk.js",
-    "static/js/3.428ab689.chunk.js.map": "/spellabs-layout/static/js/3.428ab689.chunk.js.map",
+    "static/js/2.34971a34.chunk.js": "/spellabs-layout/static/js/2.34971a34.chunk.js",
+    "static/js/2.34971a34.chunk.js.map": "/spellabs-layout/static/js/2.34971a34.chunk.js.map",
+    "static/js/3.54b19520.chunk.js": "/spellabs-layout/static/js/3.54b19520.chunk.js",
+    "static/js/3.54b19520.chunk.js.map": "/spellabs-layout/static/js/3.54b19520.chunk.js.map",
     "index.html": "/spellabs-layout/index.html",
     "static/css/2.717a1bb3.chunk.css.map": "/spellabs-layout/static/css/2.717a1bb3.chunk.css.map",
     "static/css/main.66dbdaf8.chunk.css.map": "/spellabs-layout/static/css/main.66dbdaf8.chunk.css.map",
-    "static/js/2.908f73b9.chunk.js.LICENSE.txt": "/spellabs-layout/static/js/2.908f73b9.chunk.js.LICENSE.txt",
+    "static/js/2.34971a34.chunk.js.LICENSE.txt": "/spellabs-layout/static/js/2.34971a34.chunk.js.LICENSE.txt",
     "static/media/arrow-elipse.7a18b3b6.svg": "/spellabs-layout/static/media/arrow-elipse.7a18b3b6.svg",
     "static/media/arrow1.ad0630ca.svg": "/spellabs-layout/static/media/arrow1.ad0630ca.svg",
     "static/media/arrow2.b2c092e4.svg": "/spellabs-layout/static/media/arrow2.b2c092e4.svg",
@@ -33,10 +33,10 @@
     "static/media/support.cf940831.png": "/spellabs-layout/static/media/support.cf940831.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.72109da7.js",
+    "static/js/runtime-main.a917bf51.js",
     "static/css/2.717a1bb3.chunk.css",
-    "static/js/2.908f73b9.chunk.js",
+    "static/js/2.34971a34.chunk.js",
     "static/css/main.66dbdaf8.chunk.css",
-    "static/js/main.12a97594.chunk.js"
+    "static/js/main.1d5ed4cd.chunk.js"
   ]
 }
