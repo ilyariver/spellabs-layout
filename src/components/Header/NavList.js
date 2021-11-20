@@ -202,8 +202,8 @@ class NavListMenu extends React.Component {
 		// Если не декстоп, не блокируем скролл всего окна при клике по меню
 		if (window.innerWidth <= parseInt(lg)) {
 			this.scrollDisable(`${this.state.active ? 'auto' : 'hidden'}`);
+			this.setState({active: !this.state.active});
 		}
-		this.setState({active: !this.state.active});
 	}
 
 	render() {
